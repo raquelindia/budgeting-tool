@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./budget-section-files/css/components-styles.css">
+    </head>
+    <body>
+        <div id="monthly-budget-container" class="pt-4 pb-5">
+            <div id="monthly-budget-top" class="flex flex-row justify-between">
+                <div class="flex flex-row justify-start -ml-6 mb-4">
+                    <div class="flex flex-row gap-2">
+                    <div>
+                        <h1 class="text-pink-400">{{months[currentMonth]}}</h1>
+                    </div>
+                  <div>
+                    <p class="text-purple-400">{{" " + currentYear}}</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div>
+                    <p class="text-purple-500">{{"$" + moneyLeft + " left"}}</p>
+                  </div>
+                </div>
+
+                <div ng-include="'./budget-section-files/components/monthlyBudgetBar.html'"></div>
+            
+
+          </div>
+    </body>
+</html>

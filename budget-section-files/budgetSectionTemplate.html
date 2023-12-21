@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+    <link rel="stylesheet" href="./budget-section-files/css/template-styles.css">
     </head>
     <body>
-        <div id="budget-section-template-container">
-            <div><h1>Budget</h1>></div>
+        <div id="budget-section-template-container" class="flex flex-col">
+            <div class="flex flex-row justify-between" id="budget-sec-template-head">
+                <div><a class="text-purple-400" href=""><span class="material-symbols-outlined">chevron_left</span></a></div>
+            <div class="flex flex-row justify-center"><h1 class="text-purple-500 text-2xl mb-4">Budget</h1></div>
+            <div><a href="" class="text-purple-400"><span class="material-symbols-outlined">add</span></a></div>
+            </div>
+            <div class="flex flex-col gap-4">
+            <div id="monthly-budget-file" class="flex flex-row justify-center" ng-include="'./budget-section-files/components/monthlyBudget.html'"></div>
+            <div id="monthly-budget-file" class="flex flex-row justify-center" ng-include="'./budget-section-files/components/monthlyBudget.html'"></div>
+            <div id="monthly-budget-file" class="flex flex-row justify-center" ng-include="'./budget-section-files/components/monthlyBudget.html'"></div>
+            <div id="monthly-budget-file" class="flex flex-row justify-center" ng-include="'./budget-section-files/components/monthlyBudget.html'"></div>
+                </div>
         </div>
     </body>
 </html>
