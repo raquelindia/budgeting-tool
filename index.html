@@ -8,13 +8,18 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
     <link rel="stylesheet" href="index-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
         <title>Budgeting App</title>
         
     </head>
     <body>
         <div ng-app="budgetingApp" ng-controller="appCtrl">
-            <div ng-include="'nav.html'"></div>
+
             <div ng-view></div>
+            <!-- make the nav stuck to the bottom -->
+            <nav class="bg-gray-100 "><div ng-include="'nav.html'"></div></nav>
         </div>
         <script>
             const link = document.createElement('link');
@@ -25,4 +30,5 @@
         </script>
          <script src="script.js"></script>
     </body>
+   
 </html>

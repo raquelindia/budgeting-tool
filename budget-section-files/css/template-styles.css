@@ -3,3 +3,7 @@ body {
     width: 95%;
 }
 
+#budget-header {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 220%;
+}
