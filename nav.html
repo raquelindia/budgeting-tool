@@ -2,11 +2,40 @@
 <html>
     <head>
         <link rel="stylesheet" href="nav-styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <nav id="nav-container">
-            <div><a ng-href='#!budget'>Budget</a></div>
-    
+        <nav id="nav-container" class="flex flew-row justify-around gap-4 pt-2 ">
+            <!-- Overview link-->
+            <div>
+                <a ng-href="#!overview">
+                <div class="flex flex-col">
+                    <div class="flex flex-row justify-center text-red-800"><span class="material-symbols-outlined">cottage</span></div>
+                    <div class="nav-link-title"><p class="text-xl text-red-800">Overview</p></div>
+                </div>
+                </a>
+            </div>
+            <!-- Budgets link-->
+            <div>
+                <a ng-href="#!budget">
+                    <div class="flex flex-col">
+                        <div class="flex flex-row justify-center text-green-600"><span class="material-symbols-outlined">finance_chip</span></div>
+                        <div class="nav-link-title"><p class="text-xl text-green-600">Budget</p></div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Subscriptions link-->
+            <div>
+                <a ng-href="#!subscriptions">
+                    <div class="flex flex-col">
+                        <div class="flex flex-row justify-center text-blue-500"><span class="material-symbols-outlined">subscriptions</span></div>
+                        <div class="nav-link-title text-blue-500"><p class="text-xl">Subscriptions</p></div>
+                    </div>
+                </a>
+            </div>
         </nav>
     </body>
 </html>

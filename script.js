@@ -93,6 +93,14 @@ app.config(function($routeProvider){
         templateUrl : "newBudgetForm.html",
         controller: 'appCtrl'
     })
+    .when("/overview", {
+        templateUrl : "overview.html",
+        controller: 'appCtrl'
+    })
+    .when("/subscriptions", {
+        templateUrl : "subscriptions.html",
+        controller: 'appCtrl'
+    })
     .otherwise({
         templateUrl : "budgetSection.html",
         controller: 'appCtrl'
