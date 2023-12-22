@@ -2,13 +2,19 @@ var app = angular.module('budgetingApp', ["ngRoute"]);
 app.controller('appCtrl', function($scope){
 
     //sample data
-    $scope.accountInfo = [{firstName: "Raquel", lastName: "Cruz", budget: 700, spent: 0}];
+    $scope.accountInfo = [{firstName: "Raquel", lastName: "Cruz", budget: 1, spent: 0}];
+    $scope.subscriptions = [
+        {subscription: "Netflix", cost: 15},
+        {subscription: "Github", cost: 4},
+        {subscription: "Hulu", cost: 15}
+    ]
     $scope.barColor = 'green';
     $scope.percentageSpent = 0;
     $scope.barWidth = "";
     $scope.barWhiteSpaceWidth = "";
     $scope.barTextColor = 'white';
     $scope.leftBarBorderRadius = "12px";
+    $scope.subscriptionsTotal = 45;
 
     //date 
     $scope.months = [
@@ -99,6 +105,14 @@ app.config(function($routeProvider){
     })
     .when("/subscriptions", {
         templateUrl : "subscriptions.html",
+        controller: 'appCtrl'
+    })
+    .when("/account", {
+        templateUrl : "account.html",
+        controller: 'appCtrl'
+    })
+    .when("/addsubscription", {
+        templateUrl : "newSubscriptionForm.html",
         controller: 'appCtrl'
     })
     .otherwise({

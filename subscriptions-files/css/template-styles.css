@@ -1,0 +1,14 @@
+body { 
+    background-color: rgba(255, 192, 200, 0.466);
+
+    
+}
+
+#subscriptions-template-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 220%;
+}
+
+#subscriptions-components-files {
+    width: 100%;
+}

@@ -2,11 +2,7 @@ body {
     background-color: rgba(255, 192, 200, 0.466);
 }
 
-#new-budget-form-template-title {
+#accounts-template-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 220%;
-}
-
-#new-budget-form-file {
-   
 }
