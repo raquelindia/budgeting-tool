@@ -7,14 +7,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div id="new-budget-form-container" class="flex flex-row justify-center mt-8">
-           <form id="new-budget-form" class="pt-14 pb-14 pl-28 pr-28 bg-white rounded-lg">
+        <div id="new-budget-form-container" class="flex flex-row justify-center mt-6 mb-20">
+           <form ng-submit="submitNewBudgetForm()" id="new-budget-form" class="pt-14 pb-14 pl-28 pr-28 bg-white rounded-lg">
             <div class="new-budget-form-divs">
                 <div class="new-budget-form-label-div mb-4">
                 <label class="text-2xl text-pink-500">Title</label>
                 </div>
                 <div>
-                    <input class="new-budget-form-inputs" type="text" placeholder="Title" class="shadow border"> 
+                    <input ng-required ng-model="newBudgetData.title" class="new-budget-form-inputs" type="text" placeholder="Title" class="shadow border"> 
                 </div>
             </div>
             <div class="new-budget-form-divs">
@@ -22,7 +22,16 @@
                     <label class="text-2xl text-pink-500">Amount</label>
                 </div>
                 <div>
-                    <input class="new-budget-form-inputs" type="number" placeholder="Enter amount" class="shadow border">
+                    <input ng-required ng-model="newBudgetData.amount" class="new-budget-form-inputs" type="number" placeholder="Enter amount" class="shadow border">
+                </div>
+            </div>
+
+            <div class="new-budget-form-divs">
+                <div class="new-budget-form-label-div mb-4">
+                    <label class="text-2xl text-pink-500">Spent</label>
+                </div>
+                <div>
+                    <input ng-required ng-model="newBudgetData.spent" class="new-budget-form-inputs" type="number" placeholder="Enter amount spent" class="shadow border">
                 </div>
             </div>
 
@@ -30,6 +39,10 @@
                 <button id="new-budget-form-submit-btn" type="submit" class="border rounded-lg bg-pink-400 text-white pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2"><div>SUBMIT</div><div><span class="material-symbols-outlined">favorite</span></div></div></button>
             </div>
             </form>
+
+            <div class="mb-30" ng-repeat="form in submittedBudgetForms">
+                <monthly-budget title="form.title" amount="form.amount" spent="form.spent"></monthly-budget>
+              </div>
         </div>
     </body>
 </html>
