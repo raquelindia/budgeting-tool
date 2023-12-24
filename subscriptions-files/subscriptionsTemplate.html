@@ -4,16 +4,16 @@
     <link rel="stylesheet" href="./subscriptions-files/css/template-styles.css">        
     </head>
     <body>
-        <div id="subscriptions-template-container">
-            <div id="subscriptions-template-header" class="flex flex-row justify-between">
-                <div class="text-purple-400"><span class="material-symbols-outlined">chevron_left</span></div>
-                <div><h1 id="subscriptions-template-title" class="flex flex-row justify-center text-purple-500 mt-4 mb-4">Subscriptions</h1></div>
-                <div class="text-purple-400"><a ng-href="#!addsubscription"><span class="material-symbols-outlined">add</span></a></div>
+        <div id="subscriptions-template-container" class="mb-28">
+            <div id="subscriptions-template-header" class="flex flex-row justify-between bg-pink-400 pt-4 pb-4">
+                <div><a class="bg-white pt-3 -pb-2 pr-2 pl-2 -mb-12 text-purple-500 border border-purple-400 rounded-lg ml-12"  href=""><span class="material-symbols-outlined">chevron_left</span></a></div>
+                <div><h1 id="subscriptions-template-title" class="flex flex-row justify-center text-purple-800 mt-4 mb-4">Subscriptions</h1></div>
+                <div><a class="bg-white pt-3 -pb-2 pr-2 pl-3 text-purple-500 border border-purple-400 rounded-lg mr-12" ng-href="#!addsubscription"><span class="material-symbols-outlined">heart_plus</span></a></div>
             </div>
             <!-- Greeting message  -->
             <div class="mb-8" ng-include="'./subscriptions-files/components/subscriptionMessage.html'"></div>
             <!-- Subscriptions list-->
-            <div class="flex flex-row justify-center">
+            <div class="flex flex-row justify-center mr-12 ml-12">
                 <div class="flex flex-col gap-5 w-full">
                     <div class="subscriptions-components-files" ng-include="'./subscriptions-files/components/subscriptionComponent.html'"></div>
                     <div class="subscriptions-components-files" ng-include="'./subscriptions-files/components/subscriptionComponent.html'"></div>

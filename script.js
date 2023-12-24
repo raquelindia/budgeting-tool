@@ -2,7 +2,7 @@ var app = angular.module('budgetingApp', ["ngRoute"]);
 app.controller('appCtrl', function($scope){
 
     //sample data
-    $scope.accountInfo = [{firstName: "Raquel", lastName: "Cruz", budget: 1, spent: 0}];
+    $scope.accountInfo = [{firstName: "Raquel", lastName: "Cruz", budget: 500, spent: 400}];
     $scope.subscriptions = [
         {subscription: "Netflix", cost: 15},
         {subscription: "Github", cost: 4},

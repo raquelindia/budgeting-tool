@@ -2,29 +2,32 @@
 <html>
     <head>
         <link rel="stylesheet" href="./new-budget-form-files/css/components-styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div id="new-budget-form-container" class="flex flex-row justify-center bg-white w-full">
-           <form>
-            <div>
-                <div>
-                <label>Title:</label>
+        <div id="new-budget-form-container" class="flex flex-row justify-center mt-8">
+           <form id="new-budget-form" class="pt-14 pb-14 pl-28 pr-28 bg-white rounded-lg">
+            <div class="new-budget-form-divs">
+                <div class="new-budget-form-label-div mb-4">
+                <label class="text-2xl text-pink-500">Title</label>
                 </div>
                 <div>
-                    <input type="text" placeholder="Title" class="shadow border"> 
+                    <input class="new-budget-form-inputs" type="text" placeholder="Title" class="shadow border"> 
                 </div>
             </div>
-            <div>
-                <div>
-                    <label>Amount</label>
+            <div class="new-budget-form-divs">
+                <div class="new-budget-form-label-div mb-4">
+                    <label class="text-2xl text-pink-500">Amount</label>
                 </div>
                 <div>
-                    <input type="number" placeholder="Enter amount" class="shadow border">
+                    <input class="new-budget-form-inputs" type="number" placeholder="Enter amount" class="shadow border">
                 </div>
             </div>
 
             <div>
-                <button type="submit" class="border bg-pink-400 text-white pt-2 pb-2 pl-4 pr-4">SUBMIT</button>
+                <button id="new-budget-form-submit-btn" type="submit" class="border rounded-lg bg-pink-400 text-white pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2"><div>SUBMIT</div><div><span class="material-symbols-outlined">favorite</span></div></div></button>
             </div>
             </form>
         </div>
