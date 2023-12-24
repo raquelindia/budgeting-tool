@@ -13,11 +13,6 @@
             <div class="flex flex-col gap-4 mt-10">
             <div id="monthly-budget-file" class="flex flex-row justify-center" ng-include="'./budget-section-files/components/monthlyBudget.html'"></div>
             <div id="monthly-budget-file" class="flex flex-row justify-center" ng-include="'./budget-section-files/components/monthlyBudget.html'"></div>
-=
-
-            <div ng-repeat="form in submittedBudgetForms">
-                <monthly-budget title="form.title" amount="form.amount" spent="form.spent"></monthly-budget>
-              </div>
               
         </div>
     </body>
