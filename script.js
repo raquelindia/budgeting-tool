@@ -60,6 +60,7 @@ app.controller('appCtrl', function($scope){
 
     //functions
 //submit forms functions 
+/* save ghis to a database or api or something */
 $scope.submitNewBudgetForm = function () {
      $scope.submittedBudgetForms.push(angular.copy($scope.newBudgetData));
      $scope.newBudgetData = {};
