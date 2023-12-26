@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="./new-subscription-files/css/template-styles.css">
+<link rel="stylesheet" href="./new-subscription-files/css/template-styles.css">
     </head>
     <body>
         <div id="new-subscription-form-container">
-            <div><h1 class="text-purple-500" id="new-subscription-form-template-title">Add Subscription</h1></div>
+            <div class="-ml-32 flex flex-row justify-center bg-pink-400 gap-14" id="new-subscription-form-container-head">
+                <div class="mt-4"><a class="bg-white pt-3 -pb-2 pr-2 pl-2 text-purple-500 border border-purple-400 rounded-lg ml-12"  ng-href="#!subscription"><span class="material-symbols-outlined">chevron_left</span></a></div>
+                <div class="text-purple-800 mt-8 mb-8"><h1 id="new-subscription-form-template-title">Add New Subscription</h1></div>
+            </div>
+            <!-- center this file -->
+            <div class="flex flex-row justify-center mt-8" id="new-subscription-form-file" ng-include="'./new-subscription-files/components/newSubscriptionForm.html'"></div>
         </div>
+
     </body>
 </html>
