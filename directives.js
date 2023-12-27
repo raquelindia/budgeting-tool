@@ -3,11 +3,31 @@ var app = angular.module('budgetingApp');
 app.directive('monthlyBudget', function(){
     return {
         restrict: 'E',
+        templateUrl: 'budget-section-files/components/monthlyBudget.html',
         scope: {
-            title: "=",
-            amount: "=",
-            spent: '='
+            newBudgetData: '='
         },
-        templateUrl: './budget-section-files/components/monthlyBudget.html'
+        controller: 'appCtrl'
+       
+    };
+});
+
+app.directive('something', function(){
+    return{
+        restrict: "E",
+        template: '<div>hello worldddddddd!!!1!!</div>'
+    };
+});
+/*
+app.directive('subscription', function() {
+    return{
+        restrict: 'E',
+        scope: {
+            service: "=",
+            cost: "="
+        },
+        template: '<div>something</div>'
     }
+   
 })
+*/

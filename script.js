@@ -1,8 +1,9 @@
 var app = angular.module('budgetingApp', ["ngRoute"]);
 app.controller('appCtrl', function($scope){
   $scope.submittedBudgetForms = [
-    {title: "Sample Budget", amount: 30, spent: 20}
+    {title: "Sample Budget", amount: 100, spent: 40, barWidth: "80%", greyBarWidth: "20%", moneyLeft: 60}
   ];
+
   $scope.newBudgetData = {};
   
 
@@ -29,7 +30,6 @@ app.controller('appCtrl', function($scope){
   
     $scope.barColor = 'green';
     $scope.percentageSpent = 0;
-    $scope.barWidth = "";
     $scope.barWhiteSpaceWidth = "";
     $scope.barTextColor = 'white';
     $scope.leftBarBorderRadius = "12px";
@@ -55,13 +55,39 @@ app.controller('appCtrl', function($scope){
     $scope.currentYear = $scope.currentDate.getFullYear();
 
     $scope.budget = $scope.accountInfo[0].budget;
-    $scope.spent = $scope.accountInfo[0].spent;
     $scope.moneyLeft = $scope.budget - $scope.spent;
 
     //functions
 //submit forms functions 
-/* save ghis to a database or api or something */
+/* save this to a database or api or something */
+
+$scope.getMoneyLeft = function () {
+    for (let i = 0; i < $scope.submittedBudgetForms.length; i++){
+        var amount = $scope.submittedBudgetForms[i].amount;
+        var spent = $scope.submittedBudgetForms[i].spent;
+        $scope.moneyLeft = amount - spent;
+        console.log($scope.moneyLeft);
+    }
+}; $scope.getMoneyLeft();
+
+
 $scope.submitNewBudgetForm = function () {
+    var spent = $scope.newBudgetData.spent
+    var amount =  $scope.newBudgetData.amount;
+    var getPercent = (spent / amount) * 100;
+
+    var roundDown = Math.floor(getPercent);
+
+    var greyBarRounded = 100 - getPercent;
+    greyBarRounded = Math.floor(greyBarRounded);
+    var getGreenBarWidth = roundDown.toString() + "%";
+    var getGreyBarWidth = greyBarRounded.toString() + "%";
+    $scope.newBudgetData.barWidth = getGreenBarWidth;
+    $scope.newBudgetData.greyBarWidth = getGreyBarWidth;
+    $scope.newBudgetData.moneyLeft = amount - spent;
+    console.log($scope.newBudgetData.barWidth);
+    console.log($scope.newBudgetData.greyBarWidth);
+
      $scope.submittedBudgetForms.push(angular.copy($scope.newBudgetData));
      $scope.newBudgetData = {};
 };
@@ -71,9 +97,7 @@ $scope.getSubscriptionsTotal = function () {
     var count = 0;
     for (let i = 0; i < $scope.subscriptions.length; i++) {
         var subscriptionCost = $scope.subscriptions[i].cost;
-        console.log(subscriptionCost)
         count = count + subscriptionCost;
-        console.log(count);
     }
     $scope.totalSubscriptionCost = count;
     console.log($scope.totalSubscriptionCost);
@@ -121,7 +145,6 @@ $scope.getGroceriesTotal = function () {
         num = 28;
     }
     var numToString = num.toString();
-    $scope.barWidth = numToString + "%";
     var percentageNotSpent = 100 - roundDown;
     if (percentageNotSpent > 72){
        percentageNotSpent = 72;
@@ -134,6 +157,35 @@ $scope.getGroceriesTotal = function () {
  }; $scope.getPercentage($scope.spent, $scope.budget);
 
 });
+
+//directives
+app.directive('monthlyBudget', function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'budget-section-files/components/monthlyBudget.html',
+        scope: {
+            moneyLeft: '@',
+            title: "@",
+            amount: "@",
+            spent: "@",
+            barWidth: '@',
+            greyBarWidth: '@'
+
+        },
+        controller: 'appCtrl'
+       
+    };
+});
+/*
+app.directive('subscription', function(){
+    return {
+        restrict: 'E',
+        templateUrl: '',
+        scope: 
+    }
+})
+*/
+
 app.config(function($routeProvider){
     $routeProvider
     .when("#/!", {
