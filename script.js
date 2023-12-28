@@ -57,9 +57,16 @@ app.controller('appCtrl', function($scope){
     $scope.budget = $scope.accountInfo[0].budget;
     $scope.moneyLeft = $scope.budget - $scope.spent;
 
+    //to show add budget form 
+    $scope.isBudgetFormDisplayed = false;
+
     //functions
 //submit forms functions 
 /* save this to a database or api or something */
+$scope.toggleAddBudgetForm = function () {
+    $scope.isBudgetFormDisplayed = !$scope.isBudgetFormDisplayed;
+}
+
 
 $scope.getMoneyLeft = function () {
     for (let i = 0; i < $scope.submittedBudgetForms.length; i++){
