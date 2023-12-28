@@ -1,19 +1,27 @@
 var app = angular.module('budgetingApp', ["ngRoute"]);
 app.controller('appCtrl', function($scope){
+
+    //budget data
   $scope.submittedBudgetForms = [
     {title: "Sample Budget", amount: 100, spent: 40, barWidth: "80%", greyBarWidth: "20%", moneyLeft: 60}
   ];
 
   $scope.newBudgetData = {};
-  
+
+     //subscription data 
+
+     $scope.submittedSubscriptionForms = [
+        {service: "Netflix", cost: 17},
+        {service: "Hulu", cost: 15},
+        {service: "CrunchyRoll", cost: 12},
+        {service: "Disney Plus", cost: 10}
+     ];
+
+     $scope.newSubscriptionData = {};
 
     //sample data
     $scope.accountInfo = [{firstName: "Raquel", lastName: "Cruz", budget: 500, spent: $scope.totalSubscriptionCost + $scope.totalGroceriesCost}];
-    $scope.subscriptions = [
-        {subscription: "Netflix", cost: 15},
-        {subscription: "Github", cost: 4},
-        {subscription: "Hulu", cost: 15}
-    ];
+  
     $scope.groceries = [
         {expense: 32},
         {expense: 53},
@@ -25,8 +33,8 @@ app.controller('appCtrl', function($scope){
      $scope.totalGroceriesCost
     ];
     //expenses totals
-    $scope.totalGroceriesCost = 0;
-    $scope.totalSubscriptionsCost = 0;
+    $scope.totalGroceriesCost = 12;
+    $scope.totalSubscriptionsCost = 10;
   
     $scope.barColor = 'green';
     $scope.percentageSpent = 0;
@@ -57,15 +65,20 @@ app.controller('appCtrl', function($scope){
     $scope.budget = $scope.accountInfo[0].budget;
     $scope.moneyLeft = $scope.budget - $scope.spent;
 
-    //to show add budget form 
+    //to show forms on templates 
     $scope.isBudgetFormDisplayed = false;
+    $scope.isSubscriptionFormDisplayed = false;
 
     //functions
 //submit forms functions 
 /* save this to a database or api or something */
 $scope.toggleAddBudgetForm = function () {
     $scope.isBudgetFormDisplayed = !$scope.isBudgetFormDisplayed;
-}
+};
+
+$scope.toggleAddSubscriptionForm = function () {
+    $scope.isSubscriptionFormDisplayed = !$scope.isSubscriptionFormDisplayed;
+};
 
 
 $scope.getMoneyLeft = function () {
@@ -77,7 +90,7 @@ $scope.getMoneyLeft = function () {
     }
 }; $scope.getMoneyLeft();
 
-
+//submit and send budget data to array
 $scope.submitNewBudgetForm = function () {
     var spent = $scope.newBudgetData.spent
     var amount =  $scope.newBudgetData.amount;
@@ -99,17 +112,17 @@ $scope.submitNewBudgetForm = function () {
      $scope.newBudgetData = {};
 };
 
+//submit and send subscription data to array
+$scope.submitNewSubscriptionForm = function () {
+
+$scope.submittedSubscriptionForms.push(angular.copy($scope.newSubscriptionData));
+$scope.newSubscriptionData = {};
+};
+
+
 //get subscriptions cost total 
-$scope.getSubscriptionsTotal = function () {
-    var count = 0;
-    for (let i = 0; i < $scope.subscriptions.length; i++) {
-        var subscriptionCost = $scope.subscriptions[i].cost;
-        count = count + subscriptionCost;
-    }
-    $scope.totalSubscriptionCost = count;
-    console.log($scope.totalSubscriptionCost);
-    };
-     $scope.getSubscriptionsTotal();
+
+
     
 $scope.getGroceriesTotal = function () {
         var groceriesCount = 0;
@@ -166,6 +179,8 @@ $scope.getGroceriesTotal = function () {
 });
 
 //directives
+
+//directive for budget components
 app.directive('monthlyBudget', function(){
     return {
         restrict: 'E',
@@ -183,15 +198,20 @@ app.directive('monthlyBudget', function(){
        
     };
 });
-/*
-app.directive('subscription', function(){
+
+
+app.directive('subscriptions', function(){
     return {
         restrict: 'E',
-        templateUrl: '',
-        scope: 
-    }
+        templateUrl: 'subscription-files/components/subscriptionComponent.html',
+        scope: {
+            service: '@',
+            cost: '@'
+        },
+    controller: 'appCtrl'
+    };
 })
-*/
+
 
 app.config(function($routeProvider){
     $routeProvider

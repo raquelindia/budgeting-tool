@@ -9,13 +9,13 @@
             <div>
                 <img ng-style="{'height': '50px', 'width': '50px', 'border-radius': '50%'}" src="https://images.ctfassets.net/y2ske730sjqp/5QQ9SVIdc1tmkqrtFnG9U1/de758bba0f65dcc1c6bc1f31f161003d/BrandAssets_Logos_02-NSymbol.jpg?w=940" alt="netflix">
             </div>
-       
+
             <div>
-                <label class="text-3xl text-pink-500">{{subscriptions[0].subscription}}</label>
+                <label class="text-3xl text-pink-500">{{ service }}</label>
             </div>
             </div>
             <div>
-                <p class="text-xl text-gray-500 ">{{ "$" + subscriptions[0].cost + "/mo"}}</p>
+                <p class="text-xl text-gray-500 ">{{ "$" + cost + "/mo"}}</p>
             </div>
           
         </div>
