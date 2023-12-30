@@ -19,7 +19,7 @@
                 <div ng-include="'new-subscription-files/components/newSubscriptionForm.html'"></div>
             </div>
                 <!-- repeat subscriptions-->
-            <div ng-repeat="subscription in submittedSubscriptionForms" class="mb-24 mt-8" >
+            <div ng-repeat="subscription in submittedSubscriptionForms" class="mb-10 mt-8" >
                 <monthly-subscriptions class="flex flex-row justify-center" service="{{ subscription.service }}" cost="{{ subscription.cost }}" ></monthly-subscriptions>
             </div>
             

@@ -14,7 +14,7 @@
                 <label class="text-2xl text-pink-500">Title</label>
                 </div>
                 <div>
-                    <input ng-required ng-model="newBudgetData.title" class="new-budget-form-inputs" type="text" placeholder="Title" class="shadow border"> 
+                    <input ng-require="true" ng-model="newBudgetData.title" class="new-budget-form-inputs" type="text" placeholder="Title" class="shadow border"> 
                 </div>
             </div>
             <div class="new-budget-form-divs">
@@ -22,7 +22,7 @@
                     <label class="text-2xl text-pink-500">Amount</label>
                 </div>
                 <div>
-                    <input ng-required ng-model="newBudgetData.amount" class="new-budget-form-inputs" type="number" placeholder="Enter amount" class="shadow border">
+                    <input ng-required="true" ng-model="newBudgetData.amount" class="new-budget-form-inputs" type="number" placeholder="Enter amount" class="shadow border">
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
                     <label class="text-2xl text-pink-500">Spent</label>
                 </div>
                 <div>
-                    <input ng-required ng-model="newBudgetData.spent" class="new-budget-form-inputs" type="number" placeholder="Enter amount spent" class="shadow border">
+                    <input ng-required="true" ng-model="newBudgetData.spent" class="new-budget-form-inputs" type="number" placeholder="Enter amount spent" class="shadow border">
                 </div>
             </div>
 
