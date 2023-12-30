@@ -28,12 +28,12 @@ app.controller('appCtrl', function($scope){
     ];
 
      $scope.expenses = [
-     $scope.totalSubscriptionCost,
+     $scope.totalSubscriptionsCost,
      $scope.totalGroceriesCost
     ];
     //expenses totals
     $scope.totalGroceriesCost = 12;
-    $scope.totalSubscriptionsCost = 10;
+    $scope.totalSubscriptionsCost = 0;
   
     $scope.barColor = 'green';
     $scope.percentageSpent = 0;
@@ -120,7 +120,13 @@ $scope.newSubscriptionData = {};
 
 
 //get subscriptions cost total 
-
+$scope.getSubscriptionsTotal = function () {
+    var count = 0;
+    for (let i = 0; i < $scope.submittedSubscriptionForms.length; i++){
+        count = count + $scope.submittedSubscriptionForms[i].cost;
+    };
+    $scope.totalSubscriptionsCost = count;
+}; $scope.getSubscriptionsTotal();
 
     
 $scope.getGroceriesTotal = function () {
