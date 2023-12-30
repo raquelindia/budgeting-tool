@@ -21,8 +21,19 @@
 
 #sub-overview-title {
     font-family: 'Orbitron', sans-serif;
+    -webkit-text-stroke: 1px #42357e;
+    color: #c4b5fc; /* Width and color of the text outline */
+    font-weight: 600;
 }
 
 #budgets-overview-title {
-    font-family: 'Orbitron', sans-serif;
+       font-family: 'Orbitron', sans-serif;
+       -webkit-text-stroke: 1px #42357e;
+       color: #c4b5fc; /* Width and color of the text outline */
+       font-weight: 600;
+}
+
+.number-of-category {
+    -webkit-text-stroke: 1px #d50083;
+    font-weight: 800;
 }

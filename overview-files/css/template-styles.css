@@ -10,6 +10,8 @@ body {
 
 #overview-template-second-header {
     box-shadow: 5px 5px 10px rgba(161, 106, 150, 0.64);
+    -webkit-text-stroke: 1px #8300d5;
+    font-weight: 800;
 }
 
 #overview-template-title {

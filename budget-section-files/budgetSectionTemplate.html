@@ -16,7 +16,7 @@
                 <div ng-include="'new-budget-form-files/components/newBudgetForm.html'"></div>
             </div>
 
-            <div ng-repeat="data in submittedBudgetForms" class="mb-4 mt-8" >
+            <div ng-repeat="data in submittedBudgetForms" class="mb-4 mt-8">
                 <monthly-budget class="flex flex-row justify-center" barWidth="{{ data.barWidth }}" moneyLeft="{{ data.moneyLeft }}" greyBarWidth="{{ data.greyBarWidth }}" title="{{ data.title }}" amount="{{ data.amount }}" spent="{{ data.spent }}"></monthly-budget>
             </div>
 

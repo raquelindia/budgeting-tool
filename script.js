@@ -2,8 +2,9 @@ var app = angular.module('budgetingApp', ["ngRoute"]);
 app.controller('appCtrl', function($scope){
     //budget data
   $scope.submittedBudgetForms = [
-    {title: "Sample Budget 1", amount: 100, spent: 40, barWidth: "80%", greyBarWidth: "20%", moneyLeft: 60},
-    {title: "Sample Budget 2", amount: 320, spent: 70, barWidth: "21%", greyBarWidth: "79%", moneyLeft: 250}
+    {title: "Subscriptions", amount: 100, spent: $scope.totalSubscriptionsCost, barWidth: "idk", greyBarWidth: "idk", moneyLeft: 66},
+    {title: "Toiletries", amount: 100, spent: 40, barWidth: "80%", greyBarWidth: "20%", moneyLeft: 60},
+    {title: "Groceries", amount: 320, spent: 70, barWidth: "21%", greyBarWidth: "79%", moneyLeft: 250}
   ];
 
   $scope.newBudgetData = {};
@@ -38,6 +39,7 @@ app.controller('appCtrl', function($scope){
      $scope.totalSubscriptionsCost,
      $scope.totalGroceriesCost
     ];
+
     //expenses totals
     $scope.totalMonthlySpent = 0;
     $scope.totalGroceriesCost = 12;
@@ -46,8 +48,11 @@ app.controller('appCtrl', function($scope){
     $scope.totalSubmittedBudget = 0; 
     $scope.mostExpensiveSubscriptionService = "";
     $scope.mostExpensiveSubscriptionCost = 0;
+    $scope.biggestBudgetTitle = "";
+    $scope.biggestBudgetAmount = 0;
   
     $scope.barColor = 'green';
+    $scope.overviewBarWidth = "";
     $scope.percentageSpent = 0;
     $scope.barWhiteSpaceWidth = "";
     $scope.barTextColor = 'white';
@@ -141,13 +146,15 @@ $scope.getSubscriptionsTotal = function () {
 }; $scope.getSubscriptionsTotal();
 
 //get budgets total
-
 $scope.getBudgetsTotalSpent = function () {
-    var count = 0;
+    var countSpent = 0;
+    var countTotalBudget = 0;
     for (let i = 0; i < $scope.submittedBudgetForms.length; i++){
-        count = count + $scope.submittedBudgetForms[i].spent;
+        countSpent = countSpent + $scope.submittedBudgetForms[i].spent;
+        countTotalBudget = countTotalBudget + $scope.submittedBudgetForms[i].amount;
     };
-    $scope.totalMonthlyBudgetSpent = count;
+    $scope.totalMonthlyBudgetSpent = countSpent;
+    $scope.totalSubmittedBudget = countTotalBudget;
 }; $scope.getBudgetsTotalSpent();
 
 //find most expensive subscription
@@ -163,6 +170,20 @@ $scope.getMostExpensiveSubscription = function () {
     $scope.mostExpensiveSubscriptionService = subscriptionName;
     $scope.mostExpensiveSubscriptionCost = cost;
 }; $scope.getMostExpensiveSubscription();
+
+//get most expensive budget
+$scope.getBiggestBudget = function (){
+    var amount = 0;
+    var budgetTitle = "";
+    for (let i = 0; i < $scope.submittedBudgetForms.length; i++) {
+        if ($scope.submittedBudgetForms[i].amount > amount){
+            amount = $scope.submittedBudgetForms[i].amount;
+            budgetTitle = $scope.submittedBudgetForms[i].title;
+        }
+    }
+    $scope.biggestBudgetTitle = budgetTitle;
+    $scope.biggestBudgetAmount = amount;
+}; $scope.getBiggestBudget();
 
 // add all costs 
 $scope.getTotalCosts = function () {
@@ -203,7 +224,6 @@ $scope.getGroceriesTotal = function () {
     $scope.percentageSpent = (spent / budget) * 100;
     var roundDown = Math.floor($scope.percentageSpent);
     $scope.percentageSpent = roundDown;
-    $scope.percentageSpent.toString();
     var num = $scope.percentageSpent;
     if (num >= 100) {
         num = 100;
@@ -214,7 +234,8 @@ $scope.getGroceriesTotal = function () {
     if (num < 28){
         num = 28;
     }
-    var numToString = num.toString();
+    var numToString = num.toString() + "%";
+    $scope.overviewBarWidth = numToString;
     var percentageNotSpent = 100 - roundDown;
     if (percentageNotSpent > 72){
        percentageNotSpent = 72;
@@ -224,7 +245,7 @@ $scope.getGroceriesTotal = function () {
     
 
     return $scope.percentageSpent;
- }; $scope.getPercentage($scope.spent, $scope.budget);
+ }; $scope.getPercentage($scope.totalMonthlySpent, $scope.totalSubmittedBudget);
 
 });
 
