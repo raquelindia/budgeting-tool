@@ -1,6 +1,5 @@
 var app = angular.module('budgetingApp', ["ngRoute"]);
 app.controller('appCtrl', function($scope){
-
     //budget data
   $scope.submittedBudgetForms = [
     {title: "Sample Budget", amount: 100, spent: 40, barWidth: "80%", greyBarWidth: "20%", moneyLeft: 60}
@@ -200,10 +199,10 @@ app.directive('monthlyBudget', function(){
 });
 
 
-app.directive('subscriptions', function(){
+app.directive('monthlySubscriptions', function(){
     return {
         restrict: 'E',
-        templateUrl: 'subscription-files/components/subscriptionComponent.html',
+        templateUrl: 'subscriptions-files/components/subscriptionComponent.html',
         scope: {
             service: '@',
             cost: '@'

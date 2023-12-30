@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     </head>
     <body>
-        <div ng-include="'./subscriptions-files/subscriptionsTemplate.html'"></div>
+        <div ng-hide="isSubscriptionFormDisplayed" ng-include="'./subscriptions-files/subscriptionsTemplate.html'"></div>
+        <div ng-if="isSubscriptionFormDisplayed" ng-include="'./new-subscription-files/newSubscriptionFormTemplate.html'"></div>
     </body>
 </html>
