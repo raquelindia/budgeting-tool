@@ -18,3 +18,11 @@
 #monthly-budget-bar-container {
     width: 70%;
 }
+
+#sub-overview-title {
+    font-family: 'Orbitron', sans-serif;
+}
+
+#budgets-overview-title {
+    font-family: 'Orbitron', sans-serif;
+}

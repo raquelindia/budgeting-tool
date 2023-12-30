@@ -17,11 +17,28 @@
             <div class="flex flex-row justify-center mt-8 mb-8" ng-include="'./overview-files/components/monthlyBudgetBar.html'"></div>
             
         </div>
-        <div id="overview-template-content" class="bg-white mr-4 ml-4">
-            <div class="text-pink-500 pt-8 pb-8 ml-4 mr-4 text-xl"><h3 id="overview-content-title">{{months[currentMonth] + " budget breakdown"}}</h3></div>
-            <div>
-                <span>{{ "Subscriptions: " + totalSubscriptionCost}}</span>
-                <div>{{subscriptions[1].cost}}</div>
+        <div id="overview-template-content" class="mr-4 ml-4 flex flex-col gap-2">
+            <div class="bg-white text-pink-500 pl-4 pt-8 pb-8 text-xl"><h3 id="overview-content-title">{{months[currentMonth] + " budget breakdown"}}</h3></div>
+            <div id="overview-template-components-div">
+                <div class="overview-template-components-sections mb-4 bg-white">
+                <div>
+                    <hr class="border border-purple-300">
+                </div>
+               <div class="pt-4 pb-4" ng-include="'./overview-files/components/monthlyBudgetsOverview.html'"></div>
+               <div>
+                <hr class="border border-purple-300">
+               </div>
+               </div>
+
+               <div class="overview-template-components-sections mb-4 bg-white">
+                <div>
+                    <hr class="border border-purple-300">
+                </div>
+               <div class="pt-4 pb-4" ng-include="'./overview-files/components/subscriptionsOverview.html'"></div>
+               <div>
+                <hr class="border border-purple-300">
+               </div>
+               </div>
             </div>
             
         </div>

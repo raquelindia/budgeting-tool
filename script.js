@@ -2,7 +2,8 @@ var app = angular.module('budgetingApp', ["ngRoute"]);
 app.controller('appCtrl', function($scope){
     //budget data
   $scope.submittedBudgetForms = [
-    {title: "Sample Budget", amount: 100, spent: 40, barWidth: "80%", greyBarWidth: "20%", moneyLeft: 60}
+    {title: "Sample Budget 1", amount: 100, spent: 40, barWidth: "80%", greyBarWidth: "20%", moneyLeft: 60},
+    {title: "Sample Budget 2", amount: 320, spent: 70, barWidth: "21%", greyBarWidth: "79%", moneyLeft: 250}
   ];
 
   $scope.newBudgetData = {};
@@ -18,6 +19,12 @@ app.controller('appCtrl', function($scope){
 
      $scope.newSubscriptionData = {};
 
+
+     //numbers of things 
+$scope.numberOfBudgets = $scope.submittedBudgetForms.length;
+$scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
+
+
     //sample data
     $scope.accountInfo = [{firstName: "Raquel", lastName: "Cruz", budget: 500, spent: $scope.totalSubscriptionCost + $scope.totalGroceriesCost}];
   
@@ -32,8 +39,11 @@ app.controller('appCtrl', function($scope){
      $scope.totalGroceriesCost
     ];
     //expenses totals
+    $scope.totalMonthlySpent = 0;
     $scope.totalGroceriesCost = 12;
     $scope.totalSubscriptionsCost = 0;
+    $scope.totalMonthlyBudgetSpent = 0;
+    $scope.totalSubmittedBudget = 0; 
   
     $scope.barColor = 'green';
     $scope.percentageSpent = 0;
@@ -128,7 +138,26 @@ $scope.getSubscriptionsTotal = function () {
     $scope.totalSubscriptionsCost = count;
 }; $scope.getSubscriptionsTotal();
 
+//get budgets total
+
+$scope.getBudgetsTotalSpent = function () {
+    var count = 0;
+    for (let i = 0; i < $scope.submittedBudgetForms.length; i++){
+        count = count + $scope.submittedBudgetForms[i].spent;
+    };
+    $scope.totalMonthlyBudgetSpent = count;
+}; $scope.getBudgetsTotalSpent();
+
+// add all costs 
+$scope.getTotalCosts = function () {
+var count = 0;
+count = count + $scope.totalSubscriptionsCost;
+count = count + $scope.totalMonthlyBudgetSpent;
+$scope.totalMonthlySpent = count;
+console.log($scope.totalMonthlySpent); 
+}; $scope.getTotalCosts();
     
+
 $scope.getGroceriesTotal = function () {
         var groceriesCount = 0;
         for(let j = 0; j < $scope.groceries.length; j++){
