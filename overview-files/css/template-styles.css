@@ -2,12 +2,27 @@ body {
     background-color: rgb(250, 209, 237);
   
 }
+
+#overview-template-header {
+    background-image: linear-gradient(to bottom, #f071b6, #f8d1ed);
+    
+}
+
+#overview-template-second-header {
+    box-shadow: 5px 5px 10px rgba(161, 106, 150, 0.64);
+}
+
 #overview-template-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 220%;
+    font-size: 280%;
+    -webkit-text-stroke: 3px rgb(255, 255, 255); /* Width and color of the text outline */
+   font-weight: 900;
 }
          
 #overview-content-title {
     font-family: 'Orbitron', sans-serif;
 }
 
+.overview-template-components-sections {
+    box-shadow: 5px 5px 10px rgba(161, 106, 150, 0.64);
+}

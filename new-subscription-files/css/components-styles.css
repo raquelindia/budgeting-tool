@@ -3,6 +3,10 @@
     box-shadow: 5px 5px 10px rgba(161, 106, 150, 0.64);
 }
 
+#new-subscription-form-container-head {
+    background-image: linear-gradient(to bottom, #f071b6, #f8d1ed);
+}
+
 .new-subscription-form-label-div {
     font-family: 'Orbitron', sans-serif;
 

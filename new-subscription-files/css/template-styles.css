@@ -1,8 +1,10 @@
 body { 
-    background-color: rgba(255, 192, 200, 0.466);
+    background-color: rgb(250, 209, 237);
 }
 
 #new-subscription-form-template-title{
     font-family: 'Orbitron', sans-serif;
-    font-size: 220%;
+    font-size: 280%;
+    -webkit-text-stroke: 3px rgb(255, 255, 255); /* Width and color of the text outline */
+   font-weight: 900;
 }

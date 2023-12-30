@@ -5,7 +5,7 @@
     </head>
     <body>
         <div id="overview-template-container">
-            <div id="overview-template-header" class="bg-pink-400 pt-8 pb-8 w-full">
+            <div id="overview-template-header" class="pt-8 pb-8 w-full">
                 <div><h1 id="overview-template-title" class="text-purple-800 flex flex-row justify-center mt-4">Overview</h1></div>
             <div class="mt-8">
                 <div class="flex flex-row justify-start ml-40"><h2 class="text-white text-3xl font-bold">{{months[currentMonth] + " Budget"}}</h2></div>
@@ -18,8 +18,10 @@
             
         </div>
         <div id="overview-template-content" class="mr-4 ml-4 flex flex-col gap-2">
-            <div class="bg-white text-pink-500 pl-4 pt-8 pb-8 text-xl"><h3 id="overview-content-title">{{months[currentMonth] + " budget breakdown"}}</h3></div>
-            <div id="overview-template-components-div">
+            <div id="overview-template-second-header" class="mb-2">
+            <div class="bg-purple-300 text-white pl-4 pt-8 pb-8 text-xl"><h3 id="overview-content-title">{{months[currentMonth] + " budget breakdown"}}</h3></div>
+            </div>
+            <div id="overview-template-components-div" class="mb-28">
                 <div class="overview-template-components-sections mb-4 bg-white">
                 <div>
                     <hr class="border border-purple-300">

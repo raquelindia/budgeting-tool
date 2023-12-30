@@ -21,8 +21,8 @@ app.controller('appCtrl', function($scope){
 
 
      //numbers of things 
-$scope.numberOfBudgets = $scope.submittedBudgetForms.length;
-$scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
+    $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
+    $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
 
 
     //sample data
@@ -44,6 +44,8 @@ $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
     $scope.totalSubscriptionsCost = 0;
     $scope.totalMonthlyBudgetSpent = 0;
     $scope.totalSubmittedBudget = 0; 
+    $scope.mostExpensiveSubscriptionService = "";
+    $scope.mostExpensiveSubscriptionCost = 0;
   
     $scope.barColor = 'green';
     $scope.percentageSpent = 0;
@@ -147,6 +149,20 @@ $scope.getBudgetsTotalSpent = function () {
     };
     $scope.totalMonthlyBudgetSpent = count;
 }; $scope.getBudgetsTotalSpent();
+
+//find most expensive subscription
+$scope.getMostExpensiveSubscription = function () {
+    var cost = 0;
+    var subscriptionName = "";
+    for (let i = 0; i < $scope.submittedSubscriptionForms.length; i++) {
+        if ($scope.submittedSubscriptionForms[i].cost > cost){
+            cost = $scope.submittedSubscriptionForms[i].cost;
+            subscriptionName = $scope.submittedSubscriptionForms[i].service;
+        }
+    }
+    $scope.mostExpensiveSubscriptionService = subscriptionName;
+    $scope.mostExpensiveSubscriptionCost = cost;
+}; $scope.getMostExpensiveSubscription();
 
 // add all costs 
 $scope.getTotalCosts = function () {
