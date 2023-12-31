@@ -1,0 +1,23 @@
+{
+  "name": "budgeting-tool",
+  "version": "1.0.0",
+  "description": "This is a budgeting tool that can be used to track expenses throughout the month.",
+  "main": "index.html",
+  "scripts": {
+    "test": "karma start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.7",
+    "angular-mocks": "^1.8.3",
+    "jasmine": "^5.1.0",
+    "jasmine-core": "^5.1.1",
+    "karma": "^6.4.2",
+    "karma-babel-preprocessor": "^8.0.2",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-jasmine": "^5.1.0"
+  }
+}

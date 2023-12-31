@@ -15,11 +15,11 @@
                 <div class="flex flex-row justify-center text-purple-800 text-2xl mt-8 mb-2"><h2 id="budget-section-template-form-header">Add a new budget:</h2></div>
                 <div ng-include="'new-budget-form-files/components/newBudgetForm.html'"></div>
             </div>
-
+            <div id="budget-section-template-components-div" class="mb-24">
             <div ng-repeat="data in submittedBudgetForms" class="mb-4 mt-8">
                 <monthly-budget class="flex flex-row justify-center" barWidth="{{ data.barWidth }}" moneyLeft="{{ data.moneyLeft }}" greyBarWidth="{{ data.greyBarWidth }}" title="{{ data.title }}" amount="{{ data.amount }}" spent="{{ data.spent }}"></monthly-budget>
             </div>
-
+            </div>
 
         </div>
     </body>

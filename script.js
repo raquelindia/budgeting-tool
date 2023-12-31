@@ -281,7 +281,7 @@ app.directive('monthlySubscriptions', function(){
         },
     controller: 'appCtrl'
     };
-})
+});
 
 
 app.config(function($routeProvider){
@@ -318,4 +318,4 @@ app.config(function($routeProvider){
         templateUrl : "budgetSection.html",
         controller: 'appCtrl'
     })
-})
+});

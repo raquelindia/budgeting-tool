@@ -18,3 +18,36 @@
 #monthly-budget-top {
     margin-left: 30px;
 }
+
+#monthly-budget-component-title {
+    font-family: 'Orbitron', sans-serif;
+       -webkit-text-stroke: 1px #42357e;
+       color: #c4b5fc; /* Width and color of the text outline */
+       font-weight: 600;
+}
+
+#monthly-budget-component-month {
+    -webkit-text-stroke: 1.5px #d50083;
+    font-weight: 800;
+}
+
+#monthly-budget-component-year {
+    -webkit-text-stroke: 1.5px #74009a;
+    font-weight: 800;
+}
+
+#test-budget-bar-green {
+    background: linear-gradient(to right, #228B22, #FFFFFF);
+}
+
+#test-budget-bar-orange {
+    background: linear-gradient(to right, orange, #FFFFFF);
+}
+
+#test-budget-bar-red {
+    background: linear-gradient(to right, red, #FFFFFF);
+}
+
+#test-budget-bar-grey {
+    background: linear-gradient(to right, darkgrey, #FFFFFF);
+}
