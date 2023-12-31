@@ -1,3 +1,12 @@
-#subscription-component-container {
-    border-radius: 8px;
+
+#subscriptions-message-component-text {
+     -webkit-text-stroke: 2px rgb(144, 58, 210);
+    font-weight: 900;
+}
+
+#subscription-component-title {
+    font-family: 'Orbitron', sans-serif;
+    -webkit-text-stroke: 1px #42357e;
+    color: #c4b5fc; /* Width and color of the text outline */
+    font-weight: 600;
 }
