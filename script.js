@@ -52,7 +52,6 @@ app.controller('appCtrl', function($scope){
     $scope.mostExpensiveSubscriptionCost = 0;
     $scope.biggestBudgetTitle = "";
     $scope.biggestBudgetAmount = 0;
-  
     $scope.barColor = 'green';
     $scope.overviewBarWidth = "";
     $scope.percentageSpent = 0;
@@ -80,8 +79,7 @@ app.controller('appCtrl', function($scope){
     $scope.currentMonth = $scope.currentDate.getMonth();
     $scope.currentYear = $scope.currentDate.getFullYear();
 
-    $scope.budget = $scope.accountInfo[0].budget;
-    $scope.moneyLeft = $scope.budget - $scope.spent;
+
 
     //to show forms on templates 
     $scope.isBudgetFormDisplayed = false;
@@ -113,7 +111,9 @@ $scope.submitEditBudgetForm = function () {
 $scope.getMoneyLeft = function () {
     for (let i = 0; i < $scope.submittedBudgetForms.length; i++){
         var amount = $scope.submittedBudgetForms[i].amount;
+        console.log(amount);
         var spent = $scope.submittedBudgetForms[i].spent;
+        console.log(spent)
         $scope.moneyLeft = amount - spent;
         console.log($scope.moneyLeft);
     }
@@ -234,30 +234,11 @@ $scope.getGroceriesTotal = function () {
 
  //calculate percentage 
  $scope.getPercentage = function (spent, budget) {
-    $scope.percentageSpent = (spent / budget) * 100;
-    var roundDown = Math.floor($scope.percentageSpent);
-    $scope.percentageSpent = roundDown;
-    var num = $scope.percentageSpent;
-    if (num >= 100) {
-        num = 100;
-        $scope.leftBarBorderRadius = "12px";
-    } else {
-        $scope.leftBarBorderRadius = "1px";
-    }
-    if (num < 28){
-        num = 28;
-    }
-    var numToString = num.toString() + "%";
-    $scope.overviewBarWidth = numToString;
-    var percentageNotSpent = 100 - roundDown;
-    if (percentageNotSpent > 72){
-       percentageNotSpent = 72;
-    }
-    var notSpentToString = percentageNotSpent.toString();
-    $scope.barWhiteSpaceWidth = notSpentToString + "%";
-    
-
-    return $scope.percentageSpent;
+   var spent = spent;
+   var amount = budget;
+   var percentage = spent / amount * 100;
+   var round = Math.floor(percentage);
+   $scope.percentageSpent = round;
  }; $scope.getPercentage($scope.totalMonthlySpent, $scope.totalSubmittedBudget);
 
 });

@@ -1,5 +1,5 @@
 body { 
-    background-color: rgb(250, 209, 237);
+    background-image: linear-gradient(to bottom, white, white, white, #f8d1ed, #9e92cc, #534d69, black, black);
 }
 
 #budget-header {
@@ -15,5 +15,5 @@ body {
 }
 
 #budget-sec-template-head {
-    background-image: linear-gradient(to bottom, #f071b6, #f8d1ed);
+    background-image: linear-gradient(to bottom, black, black, #534d69, #9e92cc, #9e92cc, #f8d1ed, white);
 }

@@ -18,13 +18,16 @@
 
 .new-subscription-form-inputs {
     width: 300px;
-    border: 2px solid rgb(184, 118, 196);
+    border: 2px solid rgb(188, 121, 203);
     border-radius: 6px;
     padding-left: 8px;
     padding-top: 6px;
     padding-bottom: 6px;
+    outline: 2px solid black;
 }
 
 #new-subscription-form-submit-btn {
     font-family: 'Orbitron', sans-serif;
+    border: 3px solid rgb(255, 29, 210);
+    outline: 2px solid black;
 }

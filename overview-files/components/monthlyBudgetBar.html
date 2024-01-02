@@ -4,10 +4,11 @@
         <link rel="stylesheet" href="./overview-files/css/components-styles.css">
     </head>
     <body>
-        <div id="monthly-budget-bar-container">
-            <div id="monthly-budget-bar-1" ng-style="{'border-bottom-right-radius': leftBarBorderRadius, 'border-top-right-radius': leftBarBorderRadius, 'background-color': barColor, 'width': overviewBarWidth, 'float': 'left', 'height': '25px', 'color': barTextColor}">{{ "$" + totalMonthlySpent + " of " + "$" + totalSubmittedBudget }}</div>
-                <div id="monthly-budget-bar-2" ng-style="{'background-color': 'lightgrey', 'width': barWhiteSpaceWidth, 'float': 'left', 'height': '25px'}"></div>
-          </div>
-       
+        <div>
+            <div ng-if="percentageSpent >= 80" id="overview-budget-bar-red" ng-style="{'width': '250%', 'border-radius': '12px', 'border': '2px solid red', 'float': 'left', 'height': '30px', 'color': 'white'}" class="pl-4">{{ "$" + totalMonthlySpent + " of " + "$" + totalSubmittedBudget }}</div>
+            <div ng-if="percentageSpent > 0 && percentageSpent <= 65" id="overview-budget-bar-green" ng-style="{'width': '250%', 'border-radius': '12px', 'border': '2px solid green', 'float': 'left', 'height': '30px', 'color': 'white'}" class="pl-4">{{ "$" + totalMonthlySpent + " of " + "$" + totalSubmittedBudget }}</div>
+            <div ng-if="percentageSpent > 65 && percentageSpent < 80" id="overview-budget-bar-orange" ng-style="{'width': '250%', 'border-radius': '12px', 'border': '2px solid orange', 'float': 'left', 'height': '30px', 'color': 'white'}" class="pl-4">{{ "$" + totalMonthlySpent + " of " + "$" + totalSubmittedBudget }}</div>
+            <div ng-if="percentageSpent === 0" id="overview-budget-bar-grey" ng-style="{'width': '250%', 'border-radius': '12px', 'border': '2px solid darkgrey', 'float': 'left', 'height': '30px', 'color': 'white'}" class="pl-4">{{ "$" + totalMonthlySpent + " of " + "$" + totalSubmittedBudget }}</div>
+        </div>
     </body>
 </html>

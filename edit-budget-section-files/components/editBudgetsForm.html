@@ -6,8 +6,8 @@
     <body>
         <div id="edit-budget-form-container" class="flex flex-row justify-center mt-6 mb-20">
             <div class="pt-14 pb-14 pl-28 pr-28 bg-white" id="edit-budget-form">
-            <div class="edit-budget-form-divs">
-            <div class="edit-budget-form-label-div mb-4"><label class="text-2xl text-white tracking-wider">Budget:</label></div>
+            <div ng-hide="selectedBudget" class="edit-budget-form-divs">
+            <div class="edit-budget-form-label-div mb-4"><label class="text-2xl tracking-wider">Budget:</label></div>
             <div>
                 <select class="edit-budget-form-inputs shadow border" ng-model="selectedBudget" ng-options="budget.title for budget in submittedBudgetForms">
                     <option value="">Select a budget</option>
@@ -18,22 +18,22 @@
             <div>
                 <form ng-submit="submitEditBudgetForms()" ng-show="selectedBudget">
                     <div class="edit-budget-form-divs">
-                    <div class="edit-budget-form-label-div mb-4"><label class="text-2xl text-white tracking-wider">Title:</label></div>
+                    <div class="edit-budget-form-label-div mb-4"><label class="text-2xl tracking-wider">Title:</label></div>
                     <div><input type="text" ng-model="selectedItem.name" class="edit-budget-form-inputs shadow border"></div>
                     </div>
 
                     <div class="edit-budget-form-divs">
-                        <div class="edit-budget-form-label-div mb-4"><label class="text-2xl text-white tracking-wider">Amount:</label></div>
+                        <div class="edit-budget-form-label-div mb-4"><label class="text-2xl tracking-wider">Amount:</label></div>
                         <div><input type="text" ng-model="selectedBudget.amount" class="edit-budget-form-inputs shadow border"></div>
                     </div>
 
                     <div class="edit-budget-form-divs">
-                        <div class="edit-budget-form-label-div mb-4"><label class="text-2xl text-white tracking-wider">Spent</label></div>
+                        <div class="edit-budget-form-label-div mb-4"><label class="text-2xl tracking-wider">Spent</label></div>
                         <div><input type="number" ng-model="selectedBudget.spent" class="edit-budget-form-inputs shadow border"></div>
                     </div>
 
                     <div>
-                        <button id="edit-budget-form-submit-btn" type="submit" class="border rounded-lg bg-pink-400 text-white pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2 class tracking-wider"><div>SUBMIT</div><div><span class="material-symbols-outlined">favorite</span></div></div></button>
+                        <button id="edit-budget-form-submit-btn" type="submit" class="border rounded-lg bg-pink-400 pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2 class tracking-wider"><div>SUBMIT</div><div><span class="material-symbols-outlined">favorite</span></div></div></button>
                     </div>
                 </form>
             </div>

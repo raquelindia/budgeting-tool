@@ -7,7 +7,8 @@
 
 .new-budget-form-label-div {
     font-family: 'Orbitron', sans-serif;
-    -webkit-text-stroke: 1.5px #746c97;
+    -webkit-text-stroke: 1.5px black;
+    color: yellow;
     font-weight: 800;
 
 
@@ -19,13 +20,16 @@
 
 .new-budget-form-inputs {
     width: 300px;
-    border: 2px solid rgb(184, 118, 196);
+    border: 2px solid rgb(188, 121, 203);
     border-radius: 6px;
     padding-left: 8px;
     padding-top: 6px;
     padding-bottom: 6px;
+    outline: 2px solid black;
 }
 
 #new-budget-form-submit-btn {
     font-family: 'Orbitron', sans-serif;
+    border: 3px solid rgb(255, 29, 210);
+    outline: 2px solid black;
 }

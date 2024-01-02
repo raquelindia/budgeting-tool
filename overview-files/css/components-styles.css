@@ -21,14 +21,14 @@
 
 #sub-overview-title {
     font-family: 'Orbitron', sans-serif;
-    -webkit-text-stroke: 1px #42357e;
+    -webkit-text-stroke: 1px black;
     color: #c4b5fc; /* Width and color of the text outline */
     font-weight: 600;
 }
 
 #budgets-overview-title {
        font-family: 'Orbitron', sans-serif;
-       -webkit-text-stroke: 1px #42357e;
+       -webkit-text-stroke: 1px black;
        color: #c4b5fc; /* Width and color of the text outline */
        font-weight: 600;
 }
@@ -36,4 +36,25 @@
 .number-of-category {
     -webkit-text-stroke: 1px #d50083;
     font-weight: 800;
+}
+
+
+#overview-budget-bar-green {
+    background: linear-gradient(to right, rgb(0, 44, 0), #228B22, #FFFFFF);
+    outline: 2px solid black;
+}
+
+#overview-budget-bar-orange {
+    background: linear-gradient(to right, rgb(126, 82, 0), orange, #FFFFFF);
+    outline: 2px solid black;
+}
+
+#overview-budget-bar-red {
+    background: linear-gradient(to right, rgb(69, 0, 0), red, #FFFFFF);
+    outline: 2px solid black;
+}
+
+#overview-budget-bar-grey {
+    background: linear-gradient(to right, rgb(70, 70, 70), darkgrey, #FFFFFF);
+    outline: 2px solid black;
 }

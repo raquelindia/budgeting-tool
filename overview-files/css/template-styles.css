@@ -1,17 +1,28 @@
+
+
 body { 
-    background-color: rgb(250, 209, 237);
+    background-image: linear-gradient(to bottom, white, white, white, #f8d1ed, #9e92cc, #534d69, black, black);
   
 }
 
 #overview-template-header {
-    background-image: linear-gradient(to bottom, #f071b6, #f8d1ed);
-    
+    background-image: linear-gradient(to bottom, black, black, #534d69, #9e92cc, #9e92cc, #f8d1ed, white);
+    width: 100%;
 }
+
+/* pink color: #f8d1ed */
+/* purple color: #c4b5fd */
 
 #overview-template-second-header {
     box-shadow: 5px 5px 10px rgba(161, 106, 150, 0.64);
-    -webkit-text-stroke: 1px #8300d5;
+    -webkit-text-stroke: 2px black;
     font-weight: 800;
+   
+}
+
+.overview-header-text {
+    -webkit-text-stroke: 2px rgb(0, 0, 0);
+    font-weight: 900;
 }
 
 #overview-template-title {

@@ -6,5 +6,13 @@
 }
 
 #edit-budget-header {
-    background-image: linear-gradient(to bottom, #f071b6, #f8d1ed);
+    background: none;
 }
+
+body {
+    background-image: linear-gradient(to bottom, black, black, #534d69, #9e92cc, #9e92cc, #f8d1ed, white, white, white, #f8d1ed, #9e92cc, #534d69, black, black);
+}
+
+/* html {
+    background-image: linear-gradient(to bottom, grey, black, #534d69, #9e92cc, #9e92cc, #f8d1ed, white, white, white, #f8d1ed, #9e92cc, #534d69, black, grey);
+} */
