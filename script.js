@@ -108,7 +108,7 @@ $scope.toggleEditBudgetForm = function () {
 //edit budgets
 $scope.submitEditBudgetForm = function () {
     
-}
+};
 
 $scope.getMoneyLeft = function () {
     for (let i = 0; i < $scope.submittedBudgetForms.length; i++){
