@@ -8,7 +8,7 @@
             <div id="subscriptions-template-header-and-greeting">
             <div id="subscriptions-template-header" class="flex flex-row justify-between pt-4 pb-4">
                 <div><a class="bg-white pt-3 -pb-2 pr-2 pl-2 -mb-12 text-purple-500 border border-purple-400 rounded-lg ml-12"  href=""><span class="material-symbols-outlined">chevron_left</span></a></div>
-                <div><h1 id="subscriptions-template-title" class="flex flex-row justify-center text-purple-800 mt-4 mb-4">Subscriptions</h1></div>
+                <div><h1 id="subscriptions-template-title" class="flex flex-row justify-center text-purple-800 mt-4 mb-4 tracking-wider">Subscriptions</h1></div>
                 <div><button class="bg-white pt-2 -pb-2 pr-2 pl-3 text-purple-500 border border-purple-400 rounded-lg mr-12" ng-click="toggleAddSubscriptionForm()"><span class="material-symbols-outlined">heart_plus</span></button></div>
             </div>
             <!-- Greeting message  -->
@@ -16,7 +16,7 @@
             </div>
             <!-- add subscription form -->
             <div ng-if="isSubscriptionFormDisplayed">
-                <div><h2 class="text-purple-800">Add new Subscription</h2></div>
+                <div><h2 class="text-purple-800 tracking-wider">Add new Subscription</h2></div>
                 <div ng-include="'new-subscription-files/components/newSubscriptionForm.html'"></div>
             </div>
                 <!-- repeat subscriptions-->

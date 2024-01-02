@@ -5,10 +5,11 @@
     </head>
     <body>
         <div>
+            <!-- <div ng-if="spent / amount * 100 > 100"id="test-budget-bar-red" ng-style="{'width': '80%', 'border-radius': '12px', 'border': '2px solid red', 'float': 'left', 'height': '30px', 'color': 'white'}" class="pl-4">{{ "$" + spent + " of " + "$" + amount }}</div> -->
             <div ng-if="spent / amount * 100 > 0 && spent / amount * 100 <= 65" id="test-budget-bar-green" ng-style="{'width': '80%', 'border-radius': '12px', 'border': '2px solid green', 'float': 'left', 'height': '30px', 'color': 'white'}" class="pl-4">{{ "$" + spent + " of " + "$" + amount }}</div>
             <div ng-if="spent / amount * 100 > 65 && spent / amount * 100 < 80" id="test-budget-bar-orange" ng-style="{'width': '80%', 'border-radius': '12px', 'border': '2px solid orange', 'float': 'left', 'height': '30px', 'color': 'white'}" class="pl-4">{{ "$" + spent + " of " + "$" + amount }}</div>
-            <div ng-if="spent / amount * 100 >= 100 &&  spent / amount * 100 >= 80" id="test-budget-bar-red" ng-style="{'width': '80%', 'border-radius': '12px', 'border': '2px solid red', 'float': 'left', 'height': '30px', 'color': 'white'}" class="pl-4">{{ "$" + spent + " of " + "$" + amount }}</div>
-            <div ng-if="spent /amount * 100 === 0" id="test-budget-bar-grey" ng-style="{'width': '80%', 'border-radius': '12px', 'border': '2px solid darkgrey', 'float': 'left', 'height': '30px', 'color': 'white'}" class="pl-4">{{ "$" + spent + " of " + "$" + amount }}</div>
+            <div ng-if="spent / amount * 100 <= 100 && spent / amount * 100 >= 80 || spent / amount * 100 > 100" id="test-budget-bar-red" ng-style="{'width': '80%', 'border-radius': '12px', 'border': '2px solid red', 'float': 'left', 'height': '30px', 'color': 'white'}" class="pl-4">{{ "$" + spent + " of " + "$" + amount }}</div>
+            <div ng-if="spent / amount * 100 === 0" id="test-budget-bar-grey" ng-style="{'width': '80%', 'border-radius': '12px', 'border': '2px solid darkgrey', 'float': 'left', 'height': '30px', 'color': 'white'}" class="pl-4">{{ "$" + spent + " of " + "$" + amount }}</div>
         </div>
     </body>
 </html>

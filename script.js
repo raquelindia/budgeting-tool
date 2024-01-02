@@ -3,8 +3,8 @@ app.controller('appCtrl', function($scope){
     //budget data
   $scope.submittedBudgetForms = [
     {title: "Subscriptions", amount: 100, spent: $scope.totalSubscriptionsCost, barWidth: "idk", greyBarWidth: "idk", moneyLeft: 66},
-    {title: "Toiletries", amount: 100, spent: 40, barWidth: "80%", greyBarWidth: "20%", moneyLeft: 60},
-    {title: "Groceries", amount: 320, spent: 70, barWidth: "21%", greyBarWidth: "79%", moneyLeft: 250}
+    {title: "Toiletries", amount: 100, spent: 70, barWidth: "80%", greyBarWidth: "20%", moneyLeft: 60},
+    {title: "Groceries", amount: 320, spent: 350, barWidth: "21%", greyBarWidth: "79%", moneyLeft: 250}
   ];
 
   $scope.newBudgetData = {};
@@ -20,6 +20,8 @@ app.controller('appCtrl', function($scope){
 
      $scope.newSubscriptionData = {};
 
+     //to edit budgets and subscriptions 
+     $scope.selectedBudget = null;
 
      //numbers of things 
     $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
@@ -84,18 +86,29 @@ app.controller('appCtrl', function($scope){
     //to show forms on templates 
     $scope.isBudgetFormDisplayed = false;
     $scope.isSubscriptionFormDisplayed = false;
+    $scope.isEditBudgetFormDisplayed = false;
+    
 
     //functions
 //submit forms functions 
 /* save this to a database or api or something */
 $scope.toggleAddBudgetForm = function () {
     $scope.isBudgetFormDisplayed = !$scope.isBudgetFormDisplayed;
+
 };
 
 $scope.toggleAddSubscriptionForm = function () {
     $scope.isSubscriptionFormDisplayed = !$scope.isSubscriptionFormDisplayed;
 };
 
+$scope.toggleEditBudgetForm = function () {
+    $scope.isEditBudgetFormDisplayed = !$scope.isEditBudgetFormDisplayed;
+};
+
+//edit budgets
+$scope.submitEditBudgetForm = function () {
+    
+}
 
 $scope.getMoneyLeft = function () {
     for (let i = 0; i < $scope.submittedBudgetForms.length; i++){

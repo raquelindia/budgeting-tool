@@ -2,11 +2,12 @@
 <html>
     <head>
         <link rel="stylesheet" href="./overview-files/css/template-styles.css">
+        <link rel="stylesheet" href="./overview-files/css/sass-styles.css">
     </head>
     <body>
         <div id="overview-template-container">
             <div id="overview-template-header" class="pt-8 pb-8 w-full">
-                <div><h1 id="overview-template-title" class="text-purple-800 flex flex-row justify-center mt-4">Overview</h1></div>
+                <div><h1 id="overview-template-title" class="text-purple-800 flex flex-row justify-center mt-4 tracking-wider">Overview</h1></div>
             <div class="mt-8">
                 <div class="flex flex-row justify-start ml-40"><h2 class="text-white text-3xl font-bold">{{months[currentMonth] + " Budget"}}</h2></div>
             </div>
@@ -22,7 +23,7 @@
             <div class="bg-purple-300 text-white pl-4 pt-8 pb-8 text-2xl"><h3 id="overview-content-title">{{months[currentMonth] + " budget breakdown"}}</h3></div>
             </div>
             <div id="overview-template-components-div" class="mb-28">
-                <div class="overview-template-components-sections mb-4 bg-white">
+                <div class="overview-sections overview-template-components-sections mb-4 bg-white">
                 <div>
                     <hr class="border border-purple-300">
                 </div>
@@ -32,7 +33,7 @@
                </div>
                </div>
 
-               <div class="overview-template-components-sections mb-4 bg-white">
+               <div class="overview-sections overview-template-components-sections mb-4 bg-white" >
                 <div>
                     <hr class="border border-purple-300">
                 </div>

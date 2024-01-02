@@ -1,0 +1,10 @@
+#edit-budget-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 280%;
+    -webkit-text-stroke: 3px rgb(255, 255, 255); /* Width and color of the text outline */
+   font-weight: 900;
+}
+
+#edit-budget-header {
+    background-image: linear-gradient(to bottom, #f071b6, #f8d1ed);
+}

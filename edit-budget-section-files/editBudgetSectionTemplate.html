@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./edit-budget-section-files/css/template-styles.css">
+    </head>
+    <body>
+        <div id="edit-budget-template-container">
+            <div id="edit-budget-header" class="flex flex-row justify-center pt-4 pb-8 gap-14">
+                <div><button class="bg-white pt-2 -pb-2 pr-2 pl-2 text-purple-700 border border-purple-700 rounded-lg ml-12"  ng-click="toggleEditBudgetForm()"><span class="material-symbols-outlined">chevron_left</span></button></div>
+                <div class="mt-8 mb-8 tracking-wider"><h1 id="edit-budget-title">Edit budgets</h1></div>
+            </div>
+            <div>
+                
+                 <!-- center this file -->
+            <div class="flex flex-row justify-center mt-6 mb-12" id="edit-budget-form-file" ng-include="'./edit-budget-section-files/components/editBudgetsForm.html'"></div>
+
+            </div>
+        </div>
+    </body>
+</html>

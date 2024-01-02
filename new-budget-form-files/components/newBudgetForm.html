@@ -11,7 +11,7 @@
            <form ng-submit="submitNewBudgetForm()" id="new-budget-form" class="pt-14 pb-14 pl-28 pr-28 bg-white">
             <div class="new-budget-form-divs">
                 <div class="new-budget-form-label-div mb-4">
-                <label class="text-2xl text-white">T i t l e</label>
+                <label class="text-2xl text-white tracking-wider">Title</label>
                 </div>
                 <div>
                     <input ng-require="true" ng-model="newBudgetData.title" class="new-budget-form-inputs" type="text" placeholder="Title" class="shadow border"> 
@@ -19,7 +19,7 @@
             </div>
             <div class="new-budget-form-divs">
                 <div class="new-budget-form-label-div mb-4">
-                    <label class="text-2xl text-white">A m o u n t</label>
+                    <label class="text-2xl text-white tracking-wider">Amount</label>
                 </div>
                 <div>
                     <input ng-required="true" ng-model="newBudgetData.amount" class="new-budget-form-inputs" type="number" placeholder="Enter amount" class="shadow border">
@@ -28,7 +28,7 @@
 
             <div class="new-budget-form-divs">
                 <div class="new-budget-form-label-div mb-4">
-                    <label class="text-2xl text-white">S p e n t</label>
+                    <label class="text-2xl text-white tracking-wider">Spent</label>
                 </div>
                 <div>
                     <input ng-required="true" ng-model="newBudgetData.spent" class="new-budget-form-inputs" type="number" placeholder="Enter amount spent" class="shadow border">
@@ -36,7 +36,7 @@
             </div>
 
             <div>
-                <button id="new-budget-form-submit-btn" type="submit" class="border rounded-lg bg-pink-400 text-white pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2"><div>SUBMIT</div><div><span class="material-symbols-outlined">favorite</span></div></div></button>
+                <button id="new-budget-form-submit-btn" type="submit" class="border rounded-lg bg-pink-400 text-white pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2 class tracking-wider"><div>SUBMIT</div><div><span class="material-symbols-outlined">favorite</span></div></div></button>
             </div>
             </form>
         </div>
