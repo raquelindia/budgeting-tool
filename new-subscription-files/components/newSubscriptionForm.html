@@ -8,10 +8,10 @@
     </head>
     <body>
         <div id="new-subscription-form-container" class="flex flex-row justify-center mt-6 mb-20">
-           <form ng-submit="submitNewSubscriptionForm()" id="new-subscription-form" class="pt-14 pb-14 pl-28 pr-28 bg-white rounded-lg">
+           <form ng-submit="submitNewSubscriptionForm()" id="new-subscription-form" class="pt-14 pb-14 pl-28 pr-28 bg-white">
             <div class="new-subscription-form-divs">
                 <div class="new-subscription-form-label-div mb-4">
-                <label class="text-2xl text-pink-500">Service</label>
+                <label class="subscription-form-labels text-2xl text-pink-500">Service</label>
                 </div>
                 <div>
                     <input ng-required="true" ng-model="newSubscriptionData.service" class="new-subscription-form-inputs" type="text" placeholder="Service" class="shadow border"> 
@@ -19,7 +19,7 @@
             </div>
             <div class="new-subscription-form-divs">
                 <div class="new-subscription-form-label-div mb-4">
-                    <label class="text-2xl text-pink-500">Cost</label>
+                    <label class="subscription-form-labels text-2xl text-pink-500">Cost</label>
                 </div>
                 <div>
                     <input ng-required="true" ng-model="newSubscriptionData.cost" class="new-subscription-form-inputs" type="number" placeholder="Enter amount" class="shadow border">

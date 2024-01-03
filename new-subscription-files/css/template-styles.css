@@ -3,10 +3,11 @@ body {
 }
 
 #new-subscription-form-template-title{
-    font-family: 'Orbitron', sans-serif;
-    font-size: 280%;
-    -webkit-text-stroke: 3px rgb(255, 255, 255); /* Width and color of the text outline */
-   font-weight: 900;
+    font-size: 380%;
+    -webkit-text-stroke: 1.5px rgb(0, 0, 0); /* Width and color of the text outline */
+    font-weight: 100;
+    color: rgb(245, 146, 222);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 #new-subscription-form-container-head {

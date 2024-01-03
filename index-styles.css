@@ -13,3 +13,22 @@
     -webkit-text-stroke: 0.8px black;
     font-weight: 900;
 }
+
+.white-outlined-words {
+    -webkit-text-stroke: 0.8px white;
+    font-weight: 900;
+}
+
+.btns {
+    outline: 4px solid black;
+    border: 2px solid white;
+    background: #c4b5fd;
+    color: white;
+}
+
+.btns-inverted {
+    outline: 4px solid white;
+    border: 2px solid black;
+    background: #c4b5fd;
+    color: white;
+}

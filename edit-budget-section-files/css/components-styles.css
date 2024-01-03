@@ -1,8 +1,8 @@
 .edit-budget-form-label-div {
     font-family: 'Orbitron', sans-serif;
-    -webkit-text-stroke: 1.5px black;
+    -webkit-text-stroke: 1px black;
     font-weight: 800;
-    color: yellow;
+    color: rgb(245, 146, 222);
 
 }
 
@@ -30,4 +30,11 @@
     font-family: 'Orbitron', sans-serif;
     border: 3px solid rgb(255, 29, 210);
     outline: 2px solid black;
+}
+
+#delete-budget-btn {
+    outline: 4px solid black;
+    border: 2px solid white;
+    background: #c4b5fd;
+    color: white;
 }

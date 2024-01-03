@@ -40,23 +40,32 @@
 #test-budget-bar-green {
     background: linear-gradient(to right, rgb(0, 44, 0), #228B22, #FFFFFF);
     outline: 2px solid black;
+    -webkit-text-stroke: 0.5px green;
+    font-weight: 900;
 }
 
 #test-budget-bar-orange {
     background: linear-gradient(to right, rgb(126, 82, 0), orange, #FFFFFF);
     outline: 2px solid black;
+    -webkit-text-stroke: 0.8px rgb(255, 205, 112);
+    font-weight: 900;
 }
 
 #test-budget-bar-red {
     background: linear-gradient(to right, rgb(69, 0, 0), red, #FFFFFF);
     outline: 2px solid black;
+    -webkit-text-stroke: 0.5px rgb(255, 99, 99);
+    font-weight: 900;
 }
 
 #test-budget-bar-grey {
     background: linear-gradient(to right, rgb(70, 70, 70), darkgrey, #FFFFFF);
     outline: 2px solid black;
+    -webkit-text-stroke: 0.5px rgb(167, 167, 167);
+    font-weight: 900;
 }
 
 #budget-money-left {
     -webkit-text-stroke: 0.5px black;
+    
 }
