@@ -5,7 +5,7 @@
     height: 12%;
     background-color: black;
     border-top: 1px solid #c4b5fd;
-    -webkit-text-stroke: 1px white;
+    -webkit-text-stroke: 0.5px white;
     font-weight: 900;
 }
 
