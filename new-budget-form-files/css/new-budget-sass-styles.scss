@@ -1,0 +1,12 @@
+@keyframes slideFromLeft {
+    from {
+        transform: translateX(-200%);
+    }
+    to {
+        transform: translateX(100);
+    }
+}
+
+#new-budget-form-file {
+    animation: slideFromLeft 1s ease-out forwards;
+}

@@ -3,3 +3,58 @@
 .nav-link-title {
     font-family: 'Orbitron', sans-serif;
 }
+
+#overview-logo {
+    color: #c4b5fc;
+    background-color:white;
+    margin-right: 31%;
+    margin-left: 31%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 2px solid #c4b5fc;
+    border-radius: 8px;
+}
+#account-logo {
+    color: #c4b5fc;
+    background-color:white;
+    margin-right: 29%;
+    margin-left: 29%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 2px solid #c4b5fc;
+    border-radius: 8px;
+}
+#subscriptions-logo {
+    color: #c4b5fc;
+    background-color:white;
+    margin-right: 37%;
+    margin-left: 37%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 2px solid #c4b5fc;
+    border-radius: 8px;
+}
+#budget-logo {
+    color: #c4b5fc;
+    background-color:white;
+    margin-right: 25%;
+    margin-left: 25%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 2px solid #c4b5fc;
+    border-radius: 8px;
+}
+
+#nav-account {
+    color: #c4b5fc;
+}
+
+#nav-overview {
+    color: #c4b5fc;
+}
+#nav-budget {
+    color: #c4b5fc;
+}
+#nav-subscriptions {
+    color: #c4b5fc;
+}

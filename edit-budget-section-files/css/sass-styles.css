@@ -1,0 +1,13 @@
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(100);
+  }
+}
+#edit-budget-form-file {
+  animation: slideFromLeft 1s ease-out forwards;
+}
+
+/*# sourceMappingURL=sass-styles.css.map */
