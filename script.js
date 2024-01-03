@@ -3,8 +3,8 @@ app.controller('appCtrl', function($scope){
     //budget data
   $scope.submittedBudgetForms = [
     {title: "Subscriptions", amount: 100, spent: $scope.totalSubscriptionsCost, barWidth: "idk", greyBarWidth: "idk", moneyLeft: 66},
-    {title: "Toiletries", amount: 100, spent: 70, barWidth: "80%", greyBarWidth: "20%", moneyLeft: 60},
-    {title: "Groceries", amount: 320, spent: 350, barWidth: "21%", greyBarWidth: "79%", moneyLeft: 250}
+    {title: "Toiletries", amount: 100, spent: 0, barWidth: "80%", greyBarWidth: "20%", moneyLeft: 60},
+    {title: "Groceries", amount: 220, spent: 0, barWidth: "21%", greyBarWidth: "79%", moneyLeft: 250}
   ];
 
   $scope.newBudgetData = {};
@@ -12,10 +12,10 @@ app.controller('appCtrl', function($scope){
      //subscription data 
 
      $scope.submittedSubscriptionForms = [
-        {service: "Netflix", cost: 17},
-        {service: "Hulu", cost: 15},
-        {service: "CrunchyRoll", cost: 12},
-        {service: "Disney Plus", cost: 10}
+        {service: "Netflix", cost: 0},
+        {service: "Hulu", cost: 0},
+        {service: "CrunchyRoll", cost: 0},
+        {service: "Disney Plus", cost: 0}
      ];
 
      $scope.newSubscriptionData = {};
