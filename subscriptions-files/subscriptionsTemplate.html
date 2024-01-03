@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="./subscriptions-files/css/template-styles.css">        
     </head>
     <body>
-        <div id="subscriptions-template-container" class="mb-28">
+        <div id="subscriptions-template-container" class="mb-40">
             <div id="subscriptions-template-header-and-greeting">
             <div id="subscriptions-template-header" class="flex flex-row justify-between pt-4 pb-4">
                 <div><button class="btns-inverted pt-2 -pb-2 pr-2 pl-2 -mb-12 rounded-lg ml-12"><span class="material-symbols-outlined">chevron_left</span></button></div>
@@ -14,16 +14,12 @@
             <!-- Greeting message  -->
             <div class="mb-8" ng-include="'./subscriptions-files/components/subscriptionMessage.html'"></div>
             </div>
-            <!-- add subscription form -->
-            <div ng-if="isSubscriptionFormDisplayed">
-                <div><h2 class="text-purple-800 tracking-wider">Add new Subscription</h2></div>
-                <div ng-include="'new-subscription-files/components/newSubscriptionForm.html'"></div>
-            </div>
                 <!-- repeat subscriptions-->
             <div id="subscription-components" ng-repeat="subscription in submittedSubscriptionForms" class="mb-10 mt-8" >
                 <monthly-subscriptions class="flex flex-row justify-center" service="{{ subscription.service }}" cost="{{ subscription.cost }}" ></monthly-subscriptions>
             </div>
             
+
             </div>
    
             
