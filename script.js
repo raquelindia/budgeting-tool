@@ -3,8 +3,10 @@ app.controller('appCtrl', function($scope){
     //budget data
   $scope.submittedBudgetForms = [
     {title: "Subscriptions", amount: 100, spent: $scope.totalSubscriptionsCost, barWidth: "idk", greyBarWidth: "idk", moneyLeft: 66},
-    {title: "Toiletries", amount: 100, spent: 0, barWidth: "80%", greyBarWidth: "20%", moneyLeft: 60},
-    {title: "Groceries", amount: 220, spent: 0, barWidth: "21%", greyBarWidth: "79%", moneyLeft: 250}
+    {title: "Toiletries", amount: 100, spent: 70},
+    {title: "Groceries", amount: 220, spent: 200},
+    {title: "Medical", amount: 500, spent: 0},
+    {title: "Car", amount: 800, spent: 850}
   ];
 
   $scope.newBudgetData = {};
@@ -12,10 +14,10 @@ app.controller('appCtrl', function($scope){
      //subscription data 
 
      $scope.submittedSubscriptionForms = [
-        {service: "Netflix", cost: 0},
-        {service: "Hulu", cost: 0},
-        {service: "CrunchyRoll", cost: 0},
-        {service: "Disney Plus", cost: 0}
+        {service: "Netflix", cost: 17},
+        {service: "Hulu", cost: 15},
+        {service: "CrunchyRoll", cost: 10},
+        {service: "Disney Plus", cost: 10}
      ];
 
      $scope.newSubscriptionData = {};
@@ -121,22 +123,6 @@ $scope.getMoneyLeft = function () {
 
 //submit and send budget data to array
 $scope.submitNewBudgetForm = function () {
-    var spent = $scope.newBudgetData.spent
-    var amount =  $scope.newBudgetData.amount;
-    var getPercent = (spent / amount) * 100;
-
-    var roundDown = Math.floor(getPercent);
-
-    var greyBarRounded = 100 - getPercent;
-    greyBarRounded = Math.floor(greyBarRounded);
-    var getGreenBarWidth = roundDown.toString() + "%";
-    var getGreyBarWidth = greyBarRounded.toString() + "%";
-    $scope.newBudgetData.barWidth = getGreenBarWidth;
-    $scope.newBudgetData.greyBarWidth = getGreyBarWidth;
-    $scope.newBudgetData.moneyLeft = amount - spent;
-    console.log($scope.newBudgetData.barWidth);
-    console.log($scope.newBudgetData.greyBarWidth);
-
      $scope.submittedBudgetForms.push(angular.copy($scope.newBudgetData));
      $scope.newBudgetData = {};
 };

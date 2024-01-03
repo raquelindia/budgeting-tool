@@ -6,6 +6,10 @@
     background-color: black;
     border: 2px solid rgb(187, 0, 255);
     -webkit-text-stroke: 1px white;
-    font-weight: 900
+    font-weight: 900;
 }
 
+.black-outlined-words {
+    -webkit-text-stroke: 0.8px black;
+    font-weight: 900;
+}
