@@ -30,7 +30,7 @@
 
 #new-budget-form-submit-btn {
     font-family: 'Orbitron', sans-serif;
-    border: 3px solid rgb(255, 29, 210);
-    outline: 2px solid black;
-    
+    border: 3px solid white;
+    outline: 3px solid black;
+    color: white;
 }
