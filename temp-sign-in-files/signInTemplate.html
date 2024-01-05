@@ -3,11 +3,14 @@
     <head>
         <link rel="stylesheet" href="./temp-sign-in-files/css/template-styles.css">
     </head>
-    <body>
+    <body style="background-color: black">
         <div>
             <h1>Sign In:</h1>
-            <input ng-model="signInInput" style="width: 80%;" placeholder="username" type="text">
-            <button ng-click="signIn()">sign in ^.^</button>
+            <select class="border border-black" ng-model="selectedAccount" style="width: 80%;" ng-options="account.username for account in sampleAccountsData">
+                <option value="">Select an account</option>
+            </select>
+
+            <button class="border border-red-400" ng-click="signIn()">sign in ^.^</button>
         </div>
     </body>
 </html>

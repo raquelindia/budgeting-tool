@@ -1,18 +1,25 @@
 var app = angular.module('budgetingApp', ["ngRoute"]);
-app.controller('appCtrl', function($scope){
-//temp sign in var 
-$scope.signInInput = '';
-$scope.tempUser = '';
-$scope.displaySignIn = true;
+
+app.controller('appCtrl', function($scope, $filter){
+//sample accounts data 
+$scope.sampleAccountsData = [
+    {firstName: "Raquel", lastName: "Cruz", username: 'raquelindia'},
+    {firstName: "Chris", lastName: "Mack", username: 'chrismack'},
+    {firstName: "Masaya", lastName: "Diaz", username: 'masayadiaz'}
+];
+
+  //temp sign in
+  $scope.selectedAccount = 'raquelindia';
+  $scope.displaySignIn = true;
 
 
     //budget data
   $scope.submittedBudgetForms = [
-    {title: "Subscriptions", amount: 100, spent: $scope.totalSubscriptionsCost, barWidth: "idk", greyBarWidth: "idk", moneyLeft: 66},
-    {title: "Toiletries", amount: 100, spent: 70},
-    {title: "Groceries", amount: 220, spent: 200},
-    {title: "Medical", amount: 500, spent: 0},
-    {title: "Car", amount: 800, spent: 850}
+    {title: "Subscriptions", amount: 100, spent: $scope.totalSubscriptionsCost, author: "raquel"},
+    {title: "Toiletries", amount: 100, spent: 70, author: "chrismack"},
+    {title: "Groceries", amount: 220, spent: 200, author: "raquelindia"},
+    {title: "Medical", amount: 500, spent: 0, author: "raquelindia"},
+    {title: "Car", amount: 800, spent: 850, author: "masayadiaz"}
   ];
 
   $scope.newBudgetData = {};
@@ -34,10 +41,6 @@ $scope.displaySignIn = true;
      //numbers of things 
     $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
     $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
-
-
-    //sample data
-    $scope.accountInfo = [{firstName: "Raquel", lastName: "Cruz", budget: 500, spent: $scope.totalSubscriptionCost + $scope.totalGroceriesCost}];
   
     $scope.groceries = [
         {expense: 32},
@@ -96,14 +99,6 @@ $scope.displaySignIn = true;
     
 
     //functions
-
-//temp sign in func 
-
-$scope.signIn = function () {
-    $scope.tempUser = $scope.signInInput;
-    $scope.displaySignIn = false;
-}
-
 //submit forms functions 
 /* save this to a database or api or something */
 $scope.toggleAddBudgetForm = function () {
@@ -127,13 +122,14 @@ $scope.submitEditBudgetForm = function () {
 $scope.getMoneyLeft = function () {
     for (let i = 0; i < $scope.submittedBudgetForms.length; i++){
         var amount = $scope.submittedBudgetForms[i].amount;
-        console.log(amount);
+        // console.log(amount);
         var spent = $scope.submittedBudgetForms[i].spent;
-        console.log(spent)
+        // console.log(spent)
         $scope.moneyLeft = amount - spent;
-        console.log($scope.moneyLeft);
+        // console.log($scope.moneyLeft);
     }
 }; $scope.getMoneyLeft();
+
 
 //submit and send budget data to array
 $scope.submitNewBudgetForm = function () {
@@ -143,11 +139,21 @@ $scope.submitNewBudgetForm = function () {
 
 //submit and send subscription data to array
 $scope.submitNewSubscriptionForm = function () {
-
 $scope.submittedSubscriptionForms.push(angular.copy($scope.newSubscriptionData));
 $scope.newSubscriptionData = {};
 };
 
+
+//temp sign in
+$scope.signIn = function () {
+   $scope.displaySignIn = false;
+};
+
+//filter budgets 
+$scope.filterBudgetByUsername = function () {
+    $scope.filteredBudgetsByUsername = $filter('filterBudgetsByUsername')($scope.submittedBudgetForms, $scope.selectedAccount);
+    console.log($scope.filteredBudgetsByUsername);
+}; $scope.filterBudgetByUsername();
 
 //get subscriptions cost total 
 $scope.getSubscriptionsTotal = function () {
@@ -204,7 +210,7 @@ var count = 0;
 count = count + $scope.totalSubscriptionsCost;
 count = count + $scope.totalMonthlyBudgetSpent;
 $scope.totalMonthlySpent = count;
-console.log($scope.totalMonthlySpent); 
+// console.log($scope.totalMonthlySpent); 
 }; $scope.getTotalCosts();
     
 
@@ -243,6 +249,22 @@ $scope.getGroceriesTotal = function () {
 
 });
 
+//filters 
+
+app.filter('filterBudgetsByUsername', function() {
+    return function(budgets, selectedAccount) {
+        if(!selectedAccount) {
+            return budgets;
+        }
+
+        return budgets.filter(function(budget) {
+            return budget.author === selectedAccount;
+        });
+    };
+});
+
+
+
 //directives
 
 //directive for budget components
@@ -251,13 +273,9 @@ app.directive('monthlyBudget', function(){
         restrict: 'E',
         templateUrl: 'budget-section-files/components/monthlyBudget.html',
         scope: {
-            moneyLeft: '@',
             title: "@",
             amount: "@",
             spent: "@",
-            barWidth: '@',
-            greyBarWidth: '@'
-
         },
         controller: 'appCtrl'
        

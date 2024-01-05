@@ -35,6 +35,18 @@
                 </div>
             </div>
 
+            <!-- testing this out -->
+             <div class="new-budget-form-divs">
+                <div class="new-budget-form-label-div mb-4">
+                    <label class="text-2xl tracking-wider">Author</label>
+                </div>
+                <div>
+                    <select ng-model="newBudgetData.author" ng-required="true">
+                    <option value="{{ selectedAccount }}" class="new-budget-form-inputs shadow border">
+                    </select>
+                </div>
+            </div>
+
             <div>
                 <button id="new-budget-form-submit-btn" type="submit" class="border rounded-lg bg-pink-400 text-white pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2 class tracking-wider"><div>SUBMIT</div><div><span class="material-symbols-outlined">favorite</span></div></div></button>
             </div>
