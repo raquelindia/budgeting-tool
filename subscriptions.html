@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     </head>
     <body>
-        <!-- test to add author to budgets -->
-        <div ng-if="selectedAccount === null" ng-include="'./temp-sign-in-files/signInTemplate.html'"></div>
-        <div ng-hide="selectedAccount === null">
         <div ng-hide="isSubscriptionFormDisplayed" ng-include="'./subscriptions-files/subscriptionsTemplate.html'"></div>
         <div ng-if="isSubscriptionFormDisplayed" ng-include="'./new-subscription-files/newSubscriptionFormTemplate.html'"></div>
-        </div>
+        
     </body>
 </html>

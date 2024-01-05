@@ -10,7 +10,7 @@ $scope.sampleAccountsData = [
 
   //temp sign in
   $scope.selectedAccount = 'raquelindia';
-  $scope.displaySignIn = true;
+
 
 
     //budget data
@@ -143,11 +143,6 @@ $scope.submittedSubscriptionForms.push(angular.copy($scope.newSubscriptionData))
 $scope.newSubscriptionData = {};
 };
 
-
-//temp sign in
-$scope.signIn = function () {
-   $scope.displaySignIn = false;
-};
 
 //filter budgets 
 $scope.filterBudgetByUsername = function () {

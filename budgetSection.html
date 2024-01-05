@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     </head>
     <body>
-        <div ng-if="displaySignIn" ng-include="'./temp-sign-in-files/signInTemplate.html'"></div>
-        <div ng-hide="displaySignIn">
         <div ng-hide="isBudgetFormDisplayed || isEditBudgetFormDisplayed" ng-include="'./budget-section-files/budgetSectionTemplate.html'"></div>
         <div ng-if="isBudgetFormDisplayed" ng-include="'./new-budget-form-files/newBudgetFormTemplate.html'"></div>
         <div ng-if="isEditBudgetFormDisplayed" ng-include="'./edit-budget-section-files/editBudgetSectionTemplate.html'"></div>
-        </div>
     </body>
 </html>
