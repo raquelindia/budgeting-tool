@@ -1,5 +1,11 @@
 var app = angular.module('budgetingApp', ["ngRoute"]);
 app.controller('appCtrl', function($scope){
+//temp sign in var 
+$scope.signInInput = '';
+$scope.tempUser = '';
+$scope.displaySignIn = true;
+
+
     //budget data
   $scope.submittedBudgetForms = [
     {title: "Subscriptions", amount: 100, spent: $scope.totalSubscriptionsCost, barWidth: "idk", greyBarWidth: "idk", moneyLeft: 66},
@@ -90,6 +96,14 @@ app.controller('appCtrl', function($scope){
     
 
     //functions
+
+//temp sign in func 
+
+$scope.signIn = function () {
+    $scope.tempUser = $scope.signInInput;
+    $scope.displaySignIn = false;
+}
+
 //submit forms functions 
 /* save this to a database or api or something */
 $scope.toggleAddBudgetForm = function () {
