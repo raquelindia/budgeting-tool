@@ -15,7 +15,7 @@ $scope.sampleAccountsData = [
 
     //budget data
   $scope.submittedBudgetForms = [
-    {title: "Subscriptions", amount: 100, spent: $scope.totalSubscriptionsCost, author: "raquel"},
+    {title: "Subscriptions", amount: 100, spent: $scope.totalSubscriptionsCost, author: "raquelindia"},
     {title: "Toiletries", amount: 100, spent: 70, author: "chrismack"},
     {title: "Groceries", amount: 220, spent: 200, author: "raquelindia"},
     {title: "Medical", amount: 500, spent: 0, author: "raquelindia"},
@@ -27,10 +27,10 @@ $scope.sampleAccountsData = [
      //subscription data 
 
      $scope.submittedSubscriptionForms = [
-        {service: "Netflix", cost: 17},
-        {service: "Hulu", cost: 15},
-        {service: "CrunchyRoll", cost: 10},
-        {service: "Disney Plus", cost: 10}
+        {service: "Netflix", cost: 17, author: "raqueindia"},
+        {service: "Hulu", cost: 15, author: "raquelindia"},
+        {service: "CrunchyRoll", cost: 10, author: "chrismack"},
+        {service: "Disney Plus", cost: 10, author: "masayadiaz"}
      ];
 
      $scope.newSubscriptionData = {};
@@ -295,6 +295,10 @@ app.config(function($routeProvider){
     $routeProvider
     .when("#/!", {
         templateUrl : "budgetSection.html",
+        controller: 'appCtrl'
+    })
+    .when("/home", {
+        templateUrl : "home.html",
         controller: 'appCtrl'
     })
     .when("/budget", {
