@@ -244,6 +244,47 @@ $scope.getGroceriesTotal = function () {
 
 });
 
+
+app.config(function($routeProvider){
+    $routeProvider
+    .when("#/!", {
+        templateUrl : "home.html",
+        controller: 'appCtrl'
+    })
+    .when("/home", {
+        templateUrl : "home.html",
+        controller: 'appCtrl'
+    })
+    .when("/budget", {
+        templateUrl : "budgetSection.html",
+        controller: 'appCtrl'
+    })
+    .when("/newbudget", {
+        templateUrl : "newBudgetForm.html",
+        controller: 'appCtrl'
+    })
+    .when("/overview", {
+        templateUrl : "overview.html",
+        controller: 'appCtrl'
+    })
+    .when("/subscriptions", {
+        templateUrl : "subscriptions.html",
+        controller: 'appCtrl'
+    })
+    .when("/account", {
+        templateUrl : "account.html",
+        controller: 'appCtrl'
+    })
+    .when("/addsubscription", {
+        templateUrl : "newSubscriptionForm.html",
+        controller: 'appCtrl'
+    })
+    .otherwise({
+        templateUrl : "overview.html",
+        controller: 'appCtrl'
+    });
+});
+
 //filters 
 
 app.filter('filterBudgetsByUsername', function() {
@@ -290,43 +331,3 @@ app.directive('monthlySubscriptions', function(){
     };
 });
 
-
-app.config(function($routeProvider){
-    $routeProvider
-    .when("#/!", {
-        templateUrl : "budgetSection.html",
-        controller: 'appCtrl'
-    })
-    .when("/home", {
-        templateUrl : "home.html",
-        controller: 'appCtrl'
-    })
-    .when("/budget", {
-        templateUrl : "budgetSection.html",
-        controller: 'appCtrl'
-    })
-    .when("/newbudget", {
-        templateUrl : "newBudgetForm.html",
-        controller: 'appCtrl'
-    })
-    .when("/overview", {
-        templateUrl : "overview.html",
-        controller: 'appCtrl'
-    })
-    .when("/subscriptions", {
-        templateUrl : "subscriptions.html",
-        controller: 'appCtrl'
-    })
-    .when("/account", {
-        templateUrl : "account.html",
-        controller: 'appCtrl'
-    })
-    .when("/addsubscription", {
-        templateUrl : "newSubscriptionForm.html",
-        controller: 'appCtrl'
-    })
-    .otherwise({
-        templateUrl : "budgetSection.html",
-        controller: 'appCtrl'
-    })
-});

@@ -6,19 +6,21 @@
     </head>
     <body>
         <div id="monthly-budget-container" class="pt-4 pb-8">
-            <div id="monthly-budget-top" class="flex flex-row justify-between pr-10 pl-10 pt-4">
+            <div id="monthly-budget-top" class="flex flex-row justify-between lg:pr-10 lg:pl-8 md:pr-10 md:pl-8 pl-4 pr-6 pt-4">
                 <div class="flex flex-row justify-start -ml-6 mb-4">
-                    <div class="flex flex-row gap-2 mb-2">
+                    <div class="flex flex-row justify-between gap-2 mb-2">
                    
-                        <div><h1 id="monthly-budget-component-title" class="text-3xl text-purple-800 tracking-wider">{{ title }}</h1></div><div class="mt-1"><h1 id="monthly-budget-component-month" class="text-white font-bold text-2xl tracking-wider">{{months[currentMonth]}}</h1></div><div class="text-white font-semibold mt-1"><p class="text-xl mt-1 tracking-wider" id="monthly-budget-component-year">{{" " + currentYear}}</p></div>
+                        <div><h1 id="monthly-budget-component-title" class="lg:text-3xl md:text-3xl text-2xl text-purple-800 tracking-wider">{{ title }}</h1></div><div class="mt-1"><h1 id="monthly-budget-component-month" class="text-white font-bold lg:text-2xl md:text-xl text-xl  tracking-wider">{{months[currentMonth]}}</h1></div><div class="text-white font-semibold mt-1"><p class="lg:text-xl md:text-lg text-md mt-1 tracking-wider" id="monthly-budget-component-year">{{" " + currentYear}}</p></div> 
                   </div>
                   </div>
-                  <div class="flex flex-row gap-3">
-                    <div><p id="budget-money-left" class="text-purple-500 font-extrabold tracking-wider">{{"$"}}{{ amount - spent }}</p></div>
-                  </div>
+                  
+                </div>
+                <div class="flex flex-row justify-start gap-3 lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 mb-4">
+                  <div><p id="money-left-text" class="text-purple-500 font-extrabold tracking-wider mt-2">Money left:</p></div>
+                  <div><p id="budget-money-left" class="text-purple-500 font-extrabold tracking-wider mt-2">{{"$"}}{{ amount - spent }}</p></div>
                 </div>
 
-                <div class="pr-10 pl-10 flex flex-col">
+                <div class="lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 flex flex-col">
                   <div ng-if="title === 'Subscriptions'" class="mb-6 text-gray-500 text-xl"><p>You have {{ numberOfSubscriptions }} subscriptions.</p></div>
                   <div ng-if="title === 'Subscriptions'" class="mb-6 text-gray-500 text-xl"><p>Total cost: ${{ totalSubscriptionsCost }}</p></div>
                   <div ng-if="title != 'Subscriptions'" class="mb-6 text-gray-500 text-xl"><p>Budget: ${{ amount }}</p></div>
@@ -28,7 +30,7 @@
                 <!-- <div ng-include="'./budget-section-files/components/monthlyBudgetBar.html'"></div>
                   <br>
                   <br> -->
-                <div><div class="pl-10 pr-10" ng-include="'./budget-section-files/components/testBudgetBar.html'"></div><div class="flex flex-row justify-end -mr-12"><button id="delete-budget-btn" class="btns pt-2 -pb-2 pr-2 pl-3 rounded-lg mr-8 -mt-4" ng-click="deleteBudget()"><span class="material-symbols-outlined">heart_minus</span></button></div></div>
+                <div><div class="lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6" ng-include="'./budget-section-files/components/testBudgetBar.html'"></div><div class="flex flex-row justify-end -mr-12"><button id="delete-budget-btn" class="btns pt-2 -pb-2 pr-2 pl-3 rounded-lg mr-8 -mt-4" ng-click="deleteBudget()"><span class="material-symbols-outlined">heart_minus</span></button></div></div>
 
             
 

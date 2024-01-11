@@ -6,7 +6,7 @@
     </head>
     <body>
         <div id="monthly-budgets-overview-container">
-            <div><h3 id="budgets-overview-title" class="text-purple-800 text-3xl pl-4">B u d g e t s <span class="number-of-category text-xl text-white"> ( {{ numberOfBudgets }} )</span></h3></div>
+            <div><h3 id="budgets-overview-title" class="text-purple-800 lg:text-3xl md:text-3xl text-2xl  pl-4 tracking-wider">Budgets<span class="number-of-category text-xl text-white"> ( {{ numberOfBudgets }} )</span></h3></div>
             <div><h4 class="pl-4 text-xl pt-4 text-gray-500 pb-4">You have <span>{{ "budgets in " + numberOfBudgets + " categories"}}</h4></div>
                 <div><p class="black-outlined-words pl-4 text-xl pt-4 text-green-600 pb-4 tracking-wider">Your budget is {{ "$" + totalSubmittedBudget + " a month."}}</p></div>
                 <div><p class="pl-4 text-xl pt-4 text-gray-500 pb-4">Your biggest budget is {{ biggestBudgetTitle }}. You pay <span class="black-outlined-words text-red-500 tracking-wider">${{ biggestBudgetAmount }}</span> a month.</p></div>

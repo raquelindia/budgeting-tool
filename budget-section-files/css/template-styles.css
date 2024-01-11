@@ -3,7 +3,6 @@ body {
 }
 
 #budget-header {
-    font-size: 380%;
     -webkit-text-stroke: 1.5px rgb(0, 0, 0); /* Width and color of the text outline */
     font-weight: 100;
     color: rgb(245, 146, 222);

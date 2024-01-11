@@ -6,14 +6,14 @@
     </head>
     <body>
         <div id="edit-budget-template-container">
-            <div id="edit-budget-header" class="flex flex-row justify-center pt-4 pb-8 gap-14 -ml-20">
-                <div><button class="btns-inverted pt-2 -pb-2 pr-2 pl-2 rounded-lg"  ng-click="toggleEditBudgetForm()"><span class="material-symbols-outlined">chevron_left</span></button></div>
-                <div class="mt-8 mb-8 text-purple-800"><h1 id="edit-budget-title">Edit budgets</h1></div>
+            <div id="edit-budget-header" class="flex flex-col justify-center pt-4 pb-8 gap-14">
+                <div class="flex flex-row justify-start ml-12"><button class="btns-inverted pt-2 -pb-2 pr-2 pl-2 rounded-lg"  ng-click="toggleEditBudgetForm()"><span class="material-symbols-outlined">chevron_left</span></button></div>
+                <div class="flex flex-row justify-center mb-8 text-purple-800"><h1 id="edit-budget-title">Edit budgets</h1></div>
             </div>
             <div>
                 
                  <!-- center this file -->
-            <div class="flex flex-row justify-center -mt-16 mb-12" id="edit-budget-form-file" ng-include="'./edit-budget-section-files/components/editBudgetsForm.html'"></div>
+            <div class="flex flex-row justify-center -mt-16" id="edit-budget-form-file" ng-include="'./edit-budget-section-files/components/editBudgetsForm.html'"></div>
 
             </div>
         </div>
