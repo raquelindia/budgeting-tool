@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id="new-budget-form-container" class="flex flex-row justify-center mt-6">
-           <form ng-submit="submitNewBudgetForm()" id="new-budget-form" class="pt-6 pb-6 pl-28 pr-28 bg-white ">
+           <form ng-submit="submitNewBudgetForm()" id="new-budget-form" class="pt-6 pb-6 lg:pl-28 lg:pr-28 md:pl-28 md:pr-28 pl-16 pr-16 bg-white">
             <div class="new-budget-form-divs">
                 <div class="new-budget-form-label-div mb-4">
                 <label class="text-2xl tracking-wider">Title</label>
@@ -36,7 +36,7 @@
             </div>
 
             <!-- testing this out -->
-             <div class="new-budget-form-divs">
+             <!-- <div class="new-budget-form-divs">
                 <div class="new-budget-form-label-div mb-4">
                     <label class="text-2xl tracking-wider">Author</label>
                 </div>
@@ -45,7 +45,7 @@
                     <option value="{{ selectedAccount }}" class="new-budget-form-inputs shadow border">
                     </select>
                 </div>
-            </div>
+            </div> -->
 
             <div>
                 <button id="new-budget-form-submit-btn" type="submit" class="border rounded-lg bg-pink-400 text-white pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2 class tracking-wider"><div>SUBMIT</div><div><span class="material-symbols-outlined">favorite</span></div></div></button>
