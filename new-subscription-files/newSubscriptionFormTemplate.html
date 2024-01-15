@@ -6,9 +6,9 @@
     </head>
     <body>
         <div id="new-subscription-form-container">
-            <div class="flex flex-col gap-14" id="new-subscription-form-container-head">
-                <div class="mt-4 flex flex-start"><button class="btns-inverted pt-2 -pb-2 pr-2 pl-2 rounded-lg ml-12" ng-click="toggleAddSubscriptionForm()"><span class="material-symbols-outlined">chevron_left</span></button></div>
-                <div class="text-purple-800 mt-4 mb-12 flex flex-row justify-center"><h1 id="new-subscription-form-template-title" class="lg:text-6xl md:text-5xl text-4xl">Add New Subscription</h1></div>
+            <div class="flex lg:flex-col md:flex-col flex-row lg:gap-14 md:gap-14 gap-4 lg:pt-1 md:pt-1 pt-8 " id="new-subscription-form-container-head">
+                <div class="mt-4 flex flex-start"><button class="btns-inverted pt-2 -pb-2 pr-2 pl-2 rounded-lg lg:ml-12 md:ml-12 ml-6" ng-click="toggleAddSubscriptionForm()"><span class="material-symbols-outlined">chevron_left</span></button></div>
+                <div class="text-purple-800 lg:mt-4 md:mt-4 mt-5 lg:mb-12 md:mb-12 flex flex-row justify-center"><h1 id="new-subscription-form-template-title" class="lg:text-6xl md:text-5xl text-2xl">Add New Subscription</h1></div>
             </div>
             <!-- center this file -->
             <div class="flex flex-row justify-center" id="new-subscription-form-file" ng-include="'./new-subscription-files/components/newSubscriptionForm.html'"></div>
