@@ -26,7 +26,7 @@
           $rootScope = _$rootScope_;
         });
       });
-
+      //test to see if jasmine works 
       it('should add two numbers', function() {
         var $scope = $rootScope.$new();
         var controller = $controller('appCtrl', { $scope: $scope });
@@ -35,6 +35,55 @@
 
         expect($scope.result).toBe(5);
       });
+
+//test to see if forms submit
+      it('new data from add subscriptions should be added to submittedSubscriptionsForms array', function () {
+        var $scope = $rootScope.$new();
+        var controller = $controller('appCtrl', { $scope: $scope});
+        
+
+        $scope.newSubscriptionData = { service: "Amazon Prime", cost: 12, author: "john_doe"};
+
+        $scope.submitNewSubscriptionForm();
+
+        console.log($scope.submittedSubscriptionForms[4]);
+      
+        expect($scope.submittedSubscriptionForms.length).toBe(5);
+        expect($scope.submittedSubscriptionForms[4]).toEqual({
+          service: "Amazon Prime",
+            cost: 12,
+            author: "john_doe"
+        });
+
+       
+      });
+
+
+      it('new data from add budgets should be added to submittedBudgetForms array', function () {
+        var $scope = $rootScope.$new();
+        var controller = $controller('appCtrl', { $scope: $scope});
+        
+
+        $scope.newBudgetData = { title: "something", amount: 120, spent: 17, author: "john_doe"};
+
+        $scope.submitNewBudgetForm();
+
+        console.log($scope.submittedBudgetForms[6]);
+      
+        expect($scope.submittedBudgetForms.length).toBe(6);
+        expect($scope.submittedBudgetForms[5]).toEqual({
+            title: "something",
+            amount: 120,
+            spent: 17,
+            author: "john_doe"
+        });
+
+       
+      });
+
+
+      
+
     });
   </script>
 </body>
