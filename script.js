@@ -1,7 +1,6 @@
 var app = angular.module('budgetingApp', ["ngRoute"]);
 
 app.controller('appCtrl', function($scope, $filter){
-    var vm = this;
 //sample accounts data 
 $scope.sampleAccountsData = [
     {firstName: "Raquel", lastName: "Cruz", username: 'raquelindia'},
