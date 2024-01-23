@@ -1,6 +1,7 @@
 var app = angular.module('budgetingApp', ["ngRoute"]);
 
 app.controller('appCtrl', function($scope, $filter){
+    var vm = this;
 //sample accounts data 
 $scope.sampleAccountsData = [
     {firstName: "Raquel", lastName: "Cruz", username: 'raquelindia'},
@@ -99,6 +100,12 @@ $scope.sampleAccountsData = [
     
 
     //functions
+
+    //function to see if jasmine tests work
+    $scope.add = function(a, b) {
+        $scope.result = a + b;
+      }; 
+
 //submit forms functions 
 /* save this to a database or api or something */
 $scope.toggleAddBudgetForm = function () {

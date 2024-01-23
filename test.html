@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jasmine Test</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.10.0/jasmine.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.10.0/jasmine-html.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.10.0/boot.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-mocks.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.10.0/jasmine.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <script>
+    describe('appCtrl', function() {
+      var $controller, $rootScope;
+
+      beforeEach(function() {
+        // Initialize the module before each test
+        module('budgetingApp');
+
+        // Inject dependencies using AngularJS inject function
+        inject(function(_$controller_, _$rootScope_) {
+          $controller = _$controller_;
+          $rootScope = _$rootScope_;
+        });
+      });
+
+      it('should add two numbers', function() {
+        var $scope = $rootScope.$new();
+        var controller = $controller('appCtrl', { $scope: $scope });
+
+        $scope.add(2, 3);
+
+        expect($scope.result).toBe(5);
+      });
+    });
+  </script>
+</body>
+</html>
