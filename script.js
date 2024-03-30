@@ -254,11 +254,7 @@ $scope.getGroceriesTotal = function () {
 app.config(function($routeProvider){
     $routeProvider
     .when("/", {
-        templateUrl : "home.html",
-        controller: 'appCtrl'
-    })
-    .when("/home", {
-        templateUrl : "home.html",
+        templateUrl : "overview.html",
         controller: 'appCtrl'
     })
     .when("/budget", {
