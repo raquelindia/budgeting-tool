@@ -151,6 +151,14 @@ $scope.deleteBudget = function(index) {
 };
 
 
+$scope.deleteSubscription = function(index) {
+    $scope.submittedSubscriptionForms.splice(index, 1);
+    $timeout(function() {
+        $scope.$apply();
+    });
+    console.log($scope.submittedSubscriptionForms);
+};
+
 
 $scope.getMoneyLeft = function () {
     for (let i = 0; i < $scope.submittedBudgetForms.length; i++){

@@ -20,8 +20,8 @@
             </div>
                 <!-- repeat subscriptions-->
                 <div class="mb-24">
-            <div id="subscription-components" ng-repeat="subscription in submittedSubscriptionForms" class="mb-6 mt-4" >
-                <monthly-subscriptions class="flex flex-row justify-center" service="{{ subscription.service }}" cost="{{ subscription.cost }}" ></monthly-subscriptions>
+            <div id="subscription-components" ng-repeat="(index, subscription) in submittedSubscriptionForms" class="mb-6 mt-4" >
+                <monthly-subscriptions class="flex flex-row justify-center" service="{{ subscription.service }}" cost="{{ subscription.cost }}" ng-click="deleteSubscription(index)"></monthly-subscriptions>
             </div>
             </div>
 
