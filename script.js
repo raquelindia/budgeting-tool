@@ -1,6 +1,6 @@
-var app = angular.module('budgetingApp', ["ngRoute"]);
+var app = angular.module('budgetingApp', ["ngRoute", "ngCookies"]);
 
-app.controller('appCtrl', function($scope, $filter, $timeout){
+app.controller('appCtrl', function($scope, $filter, $timeout, $cookies){
 //sample accounts data 
 $scope.sampleAccountsData = [
     {firstName: "Raquel", lastName: "Cruz", username: 'raquelindia'},
@@ -41,6 +41,7 @@ $scope.sampleAccountsData = [
      //numbers of things 
     $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
     $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
+    $scope.numberOfOtherServices = $scope.numberOfSubscriptions - 1;
   
     $scope.groceries = [
         {expense: 32},
@@ -109,7 +110,6 @@ $scope.sampleAccountsData = [
 /* save this to a database or api or something */
 $scope.toggleAddBudgetForm = function () {
     $scope.isBudgetFormDisplayed = !$scope.isBudgetFormDisplayed;
-
 };
 
 $scope.toggleAddSubscriptionForm = function () {
@@ -118,6 +118,41 @@ $scope.toggleAddSubscriptionForm = function () {
 
 $scope.toggleEditBudgetForm = function () {
     $scope.isEditBudgetFormDisplayed = !$scope.isEditBudgetFormDisplayed;
+};
+
+
+//find most expensive subscription
+$scope.getMostExpensiveSubscription = function () {
+    var cost = 0;
+    var instancesOfHighestCost = 0;
+    var subscriptionName = "";
+    var subscriptionsCostsArr = [];
+    var otherServices = instancesOfHighestCost - 1;
+    for (let i = 0; i < $scope.submittedSubscriptionForms.length; i++) {
+        if ($scope.submittedSubscriptionForms[i].cost > cost){
+            cost = $scope.submittedSubscriptionForms[i].cost;
+            subscriptionName = $scope.submittedSubscriptionForms[i].service;
+        }
+    }
+    $scope.mostExpensiveSubscriptionCost = cost;
+
+    for (let j = 0; j < $scope.submittedSubscriptionForms.length; j++) {
+        subscriptionsCostsArr.push($scope.submittedSubscriptionForms[j].cost);
+    }
+
+    for (let k = 0; k < $scope.submittedSubscriptionForms.length; k++) {
+       if(subscriptionsCostsArr[k] === $scope.mostExpensiveSubscriptionCost) {
+        instancesOfHighestCost = instancesOfHighestCost + 1;
+        otherServices = instancesOfHighestCost - 1;
+       }
+    }
+
+    if ( otherServices > 0 ) {
+        $scope.mostExpensiveSubscriptionService = subscriptionName + "and " + otherServices + " others";
+    } else {
+        $scope.mostExpensiveSubscriptionService = subscriptionName;
+    }
+  
 };
 
 //edit budgets
@@ -140,7 +175,10 @@ $scope.submitEditBudgetForm = function () {
         $scope.toggleEditBudgetForm(); // Assuming this function toggles the visibility of the edit form
         
     }
+
+    $scope.saveAppState();
 };
+
 
 $scope.deleteBudget = function(index) {
     $scope.submittedBudgetForms.splice(index, 1);
@@ -148,6 +186,9 @@ $scope.deleteBudget = function(index) {
         $scope.$apply();
     });
     console.log($scope.submittedBudgetForms);
+    $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
+    
+    $scope.saveAppState();
 };
 
 
@@ -157,6 +198,9 @@ $scope.deleteSubscription = function(index) {
         $scope.$apply();
     });
     console.log($scope.submittedSubscriptionForms);
+    $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
+    $scope.numberOfOtherServices = $scope.numberOfSubscriptions - 1;
+    $scope.saveAppState();
 };
 
 
@@ -172,24 +216,6 @@ $scope.getMoneyLeft = function () {
 }; $scope.getMoneyLeft();
 
 
-//submit and send budget data to array
-$scope.submitNewBudgetForm = function () {
-     $scope.submittedBudgetForms.push(angular.copy($scope.newBudgetData));
-     $scope.newBudgetData = {};
-};
-
-//submit and send subscription data to array
-$scope.submitNewSubscriptionForm = function () {
-$scope.submittedSubscriptionForms.push(angular.copy($scope.newSubscriptionData));
-$scope.newSubscriptionData = {};
-};
-
-
-//filter budgets 
-$scope.filterBudgetByUsername = function () {
-    $scope.filteredBudgetsByUsername = $filter('filterBudgetsByUsername')($scope.submittedBudgetForms, $scope.selectedAccount);
-}; $scope.filterBudgetByUsername();
-
 //get subscriptions cost total 
 $scope.getSubscriptionsTotal = function () {
     var count = 0;
@@ -198,6 +224,24 @@ $scope.getSubscriptionsTotal = function () {
     };
     $scope.totalSubscriptionsCost = count;
 }; $scope.getSubscriptionsTotal();
+
+
+//submit and send budget data to array
+$scope.submitNewBudgetForm = function () {
+     $scope.submittedBudgetForms.push(angular.copy($scope.newBudgetData));
+     $scope.newBudgetData = {};
+     $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
+     $scope.saveAppState();
+};
+
+//submit and send subscription data to array
+$scope.submitNewSubscriptionForm = function () {
+$scope.submittedSubscriptionForms.push(angular.copy($scope.newSubscriptionData));
+$scope.newSubscriptionData = {};
+$scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
+$scope.saveAppState();
+};
+
 
 //get budgets total
 $scope.getBudgetsTotalSpent = function () {
@@ -209,21 +253,9 @@ $scope.getBudgetsTotalSpent = function () {
     };
     $scope.totalMonthlyBudgetSpent = countSpent;
     $scope.totalSubmittedBudget = countTotalBudget;
-}; $scope.getBudgetsTotalSpent();
+}; 
 
-//find most expensive subscription
-$scope.getMostExpensiveSubscription = function () {
-    var cost = 0;
-    var subscriptionName = "";
-    for (let i = 0; i < $scope.submittedSubscriptionForms.length; i++) {
-        if ($scope.submittedSubscriptionForms[i].cost > cost){
-            cost = $scope.submittedSubscriptionForms[i].cost;
-            subscriptionName = $scope.submittedSubscriptionForms[i].service;
-        }
-    }
-    $scope.mostExpensiveSubscriptionService = subscriptionName;
-    $scope.mostExpensiveSubscriptionCost = cost;
-}; $scope.getMostExpensiveSubscription();
+
 
 //get most expensive budget
 $scope.getBiggestBudget = function (){
@@ -237,7 +269,7 @@ $scope.getBiggestBudget = function (){
     }
     $scope.biggestBudgetTitle = budgetTitle;
     $scope.biggestBudgetAmount = amount;
-}; $scope.getBiggestBudget();
+};
 
 // add all costs 
 $scope.getTotalCosts = function () {
@@ -281,6 +313,84 @@ $scope.getGroceriesTotal = function () {
    var round = Math.floor(percentage);
    $scope.percentageSpent = round;
  }; $scope.getPercentage($scope.totalMonthlySpent, $scope.totalSubmittedBudget);
+
+
+ //functions to save state 
+//to save state of app
+ $scope.saveAppState = function() {
+    // Save the state of your app using $cookies.put
+    $cookies.putObject('appState', {
+        submittedBudgetForms: $scope.submittedBudgetForms,
+        submittedSubscriptionForms: $scope.submittedSubscriptionForms,
+        numberOfSubscriptions: $scope.numberOfSubscriptions,
+        numberOfBudgets: $scope.numberOfBudgets,
+        mostExpensiveSubscriptionService: $scope.mostExpensiveSubscriptionService,
+        totalSubscriptionsCost: $scope.totalSubscriptionsCost,
+        totalSubmittedBudget: $scope.totalSubmittedBudget,
+        mostExpensiveSubscriptionCost:  $scope.mostExpensiveSubscriptionCost,
+        biggestBudgetTitle: $scope.biggestBudgetTitle,
+        biggestBudgetAmount: $scope.biggestBudgetAmount,
+        totalMonthlyBudgetSpent: $scope.totalMonthlyBudgetSpent,
+        numberOfOtherServices: $scope.numberOfOtherServices
+        // Add other properties you want to save
+    });
+};
+
+//to load state of app
+$scope.loadAppState = function() {
+    // Load the saved state from cookies using $cookies.getObject
+    var savedState = $cookies.getObject('appState');
+    if (savedState) {
+        // Restore the state of your app
+        $scope.submittedBudgetForms = savedState.submittedBudgetForms;
+        $scope.submittedSubscriptionForms = savedState.submittedSubscriptionForms;
+        $scope.numberOfSubscriptions = savedState.numberOfSubscriptions;
+        $scope.numberOfBudgets = savedState.numberOfBudgets;
+        $scope.mostExpensiveSubscriptionService = savedState.mostExpensiveSubscriptionService;
+        $scope.totalSubscriptionsCost = savedState.totalSubscriptionsCost;
+        $scope.totalSubmittedBudget = savedState.totalSubmittedBudget;
+        $scope.mostExpensiveSubscriptionCost = savedState.mostExpensiveSubscriptionCost;
+        $scope.biggestBudgetTitle = savedState.biggestBudgetTitle;
+        $scope.biggestBudgetAmount = savedState.biggestBudgetAmount;
+        $scope.totalMonthlyBudgetSpent = savedState.totalMonthlyBudgetSpent;
+        $scope.numberOfOtherServices = savedState.numberOfOtherServices;
+
+        
+        // Restore other properties
+    };
+};
+
+//to call saveAppState whenever the state of the app changes 
+$scope.$watchGroup(['submittedBudgetForms', 
+'submittedSubscriptionForms',
+ 'numberOfBudgets', 
+ 'numberOfSubscriptions',
+  'mostExpensiveSubscriptionService', 
+  'totalSubscriptionsCost', 
+  'totalSubmittedBudget', 
+  'mostExpensiveSubscriptionCost',
+  'biggestBudgetTitle',
+  'biggestBudgetAmount',
+  'totalMonthlyBudgetSpent',
+  'numberOfOtherServices'
+], function(newValues, oldValues) {
+    // Check if the arrays are different
+    if (newValues[0] !== oldValues[0] || newValues[1] !== oldValues[1]) {
+        $scope.saveAppState();
+    }
+});
+
+
+//call loadAppState whenever controller initializes
+$scope.loadAppState();
+
+$scope.getUpdatedValues = function () {
+    $scope.getSubscriptionsTotal();
+    $scope.getMostExpensiveSubscription();
+    $scope.getBiggestBudget();
+    $scope.getBudgetsTotalSpent();
+    $scope.saveAppState();
+}; $scope.getUpdatedValues();
 
 });
 
