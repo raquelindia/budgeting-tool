@@ -17,8 +17,8 @@
             <div class="flex flex-row justify-center"><h1 class="text-purple-800 mb-8 lg:mt-8 md:mt-8 mt-14 lg:mt-4 md:mt-4 mt-10 mb-4 lg:text-6xl md:text-5xl text-5xl" id="budget-header">Budget</h1></div>
         </div>
             <div id="budget-section-template-components-div" class="mb-24">
-            <div ng-repeat="data in submittedBudgetForms" class="mb-4 mt-8">
-                <monthly-budget class="flex flex-row justify-center" title="{{ data.title }}" amount="{{ data.amount }}" spent="{{ data.spent }}"></monthly-budget>
+            <div ng-repeat="(index, data) in submittedBudgetForms" class="mb-4 mt-8">
+                <monthly-budget class="flex flex-row justify-center" title="{{ data.title }}" amount="{{ data.amount }}" spent="{{ data.spent }}" ng-click="deleteBudget(index)"></monthly-budget>
             </div>
         </div>
         <!--only the users data-->
@@ -28,7 +28,7 @@
                 <monthly-budget class="flex flex-row justify-center" title="{{ data.title }}" amount="{{ data.amount }}" spent="{{ data.spent }}"></monthly-budget>
             </div>
         </div>
-        
+    -->
         </div>
     </body>
 </html>

@@ -1,6 +1,6 @@
 var app = angular.module('budgetingApp', ["ngRoute"]);
 
-app.controller('appCtrl', function($scope, $filter){
+app.controller('appCtrl', function($scope, $filter, $timeout){
 //sample accounts data 
 $scope.sampleAccountsData = [
     {firstName: "Raquel", lastName: "Cruz", username: 'raquelindia'},
@@ -125,6 +125,16 @@ $scope.submitEditBudgetForm = function () {
     
 };
 
+$scope.deleteBudget = function(index) {
+    $scope.submittedBudgetForms.splice(index, 1);
+    $timeout(function() {
+        $scope.$apply();
+    });
+    console.log($scope.submittedBudgetForms);
+};
+
+
+
 $scope.getMoneyLeft = function () {
     for (let i = 0; i < $scope.submittedBudgetForms.length; i++){
         var amount = $scope.submittedBudgetForms[i].amount;
@@ -153,7 +163,6 @@ $scope.newSubscriptionData = {};
 //filter budgets 
 $scope.filterBudgetByUsername = function () {
     $scope.filteredBudgetsByUsername = $filter('filterBudgetsByUsername')($scope.submittedBudgetForms, $scope.selectedAccount);
-    console.log($scope.filteredBudgetsByUsername);
 }; $scope.filterBudgetByUsername();
 
 //get subscriptions cost total 
@@ -288,7 +297,6 @@ app.config(function($routeProvider){
 });
 
 //filters 
-
 app.filter('filterBudgetsByUsername', function() {
     return function(budgets, selectedAccount) {
         if(!selectedAccount) {
