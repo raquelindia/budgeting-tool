@@ -122,7 +122,24 @@ $scope.toggleEditBudgetForm = function () {
 
 //edit budgets
 $scope.submitEditBudgetForm = function () {
-    
+      // Check if a budget is selected
+      if ($scope.selectedBudget) {
+        // Find the index of the selected budget in the submittedBudgetForms array
+        var index = $scope.submittedBudgetForms.findIndex(function(budget) {
+            return budget.title === $scope.selectedBudget.title;
+        });
+
+        // Update the budget details
+        if (index !== -1) {
+            $scope.submittedBudgetForms[index].amount = $scope.selectedBudget.amount;
+            $scope.submittedBudgetForms[index].spent = $scope.selectedBudget.spent;
+        }
+
+        // Clear the selectedBudget variable and hide the form
+        $scope.selectedBudget = null;
+        $scope.toggleEditBudgetForm(); // Assuming this function toggles the visibility of the edit form
+        
+    }
 };
 
 $scope.deleteBudget = function(index) {
