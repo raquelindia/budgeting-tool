@@ -17,20 +17,22 @@
                 </div>
                 <div class="flex flex-row justify-start gap-3 lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 mb-4">
                   <div><p id="money-left-text" class="text-purple-500 font-extrabold tracking-wider mt-2">Money left:</p></div>
-                  <div><p id="budget-money-left" class="text-purple-500 font-extrabold tracking-wider mt-2">{{"$"}}{{ amount - spent }}</p></div>
+                  <div ng-if="id !== '0'"><p id="budget-money-left" class="text-purple-500 font-extrabold tracking-wider mt-2">{{"$"}}{{ amount - spent }}</p></div>
+                  <div ng-if="id === '0'"><p id="budget-money-left" class="text-purple-500 font-extrabold tracking-wider mt-2">{{"$"}}{{ amount - totalSubscriptionsCost }}</p></div>
                 </div>
 
                 <div class="lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 flex flex-col">
-                  <div ng-if="title === 'Subscriptions'" class="mb-6 text-gray-500 text-xl"><p>You have {{ numberOfSubscriptions }} subscriptions.</p></div>
-                  <div ng-if="title === 'Subscriptions'" class="mb-6 text-gray-500 text-xl"><p>Total cost: ${{ totalSubscriptionsCost }}</p></div>
-                  <div ng-if="title != 'Subscriptions'" class="mb-6 text-gray-500 text-xl"><p>Budget: ${{ amount }}</p></div>
+                  <div ng-if="title === '0'" class="mb-6 text-gray-500 text-xl"><p>You have {{ numberOfSubscriptions }} subscriptions.</p></div>
+                  <div ng-if="id === '0'" class="mb-6 text-gray-500 text-xl"><p>Total cost: ${{ totalSubscriptionsCost }}</p></div>
+                  <div class="mb-6 text-gray-500 text-xl"><p>Budget: ${{ amount }}</p></div>
                   <div ng-if="title != 'Subscriptions'" class="mb-6 text-gray-500 text-xl"><p>Spent: ${{ spent }}</p></div>
-                  <div ng-if="spent / amount * 100 > 100" class="black-outlined-words mb-6 text-red-500 text-xl tracking-wider"><p>You have gone over your budget for {{ title }} this month.</p></div>
+                  <div ng-if="id !== '0' && spent / amount * 100 > 100" class="black-outlined-words mb-6 text-red-500 text-xl tracking-wider"><p>You have gone over your budget for {{ title }} this month.</p></div>
+                  <div ng-if="id === '0' && totalSubscriptionsCost / amount * 100 > 100" class="black-outlined-words mb-6 text-red-500 text-xl tracking-wider"><p>You have gone over your budget for {{ title }} this month.</p></div>
                 </div>
                 <!-- <div ng-include="'./budget-section-files/components/monthlyBudgetBar.html'"></div>
                   <br>
                   <br> -->
-                <div class="flex lg:flex-row md:flex-row flex-col  justify-center"><div class="lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 w-full" ng-include="'./budget-section-files/components/testBudgetBar.html'"></div><div class="flex lg:mt-0 md:mt-0 mt-10 lg:ml-0 md:ml-0 ml-6 "><div><a ng-click="deleteBudget(id)" id="delete-budget-btn" class="btns pt-4 pb-2 pr-3 pl-3 rounded-lg mr-8 -mt-4"><span class="material-symbols-outlined">heart_minus</span></a></div><div><a ng-href="#!editbudget" ng-click="saveIndex(id)" id="edit-budget-btn" class="btns pt-4 pb-2 pr-3 pl-3 rounded-lg mr-8 -mt-12"><span class="material-symbols-outlined">edit</span></a></div></div></div>
+                <div class="flex lg:flex-row md:flex-row flex-col  justify-center"><div class="lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 w-full" ng-include="'./budget-section-files/components/testBudgetBar.html'"></div><div class="flex lg:mt-0 md:mt-0 mt-10 lg:ml-0 md:ml-0 ml-6 "><div ng-if="id !== '0'"><a ng-click="deleteBudget(id)" id="delete-budget-btn" class="btns pt-4 pb-2 pr-2 pl-3 rounded-lg mr-8 -mt-4"><span class="material-symbols-outlined">heart_minus</span></a></div><div><a ng-href="#!editbudget" ng-click="saveIndex(id)" id="edit-budget-btn" class="btns pt-4 pb-2 pr-2 pl-3 rounded-lg mr-8 -mt-12"><span class="material-symbols-outlined">edit</span></a></div></div></div>
 
             
 

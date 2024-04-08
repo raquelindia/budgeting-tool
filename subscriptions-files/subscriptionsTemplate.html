@@ -15,7 +15,10 @@
             </div>
             </div>
             <!-- Greeting message  -->
-            <div ng-include="'./subscriptions-files/components/subscriptionMessage.html'"></div>
+            <div ng-if="numberOfSubscriptions > 0" ng-include="'./subscriptions-files/components/subscriptionMessage.html'"></div>
+            <div ng-if="numberOfSubscriptions < 1" class="flex mt-12 justify-center bg-white shadow-xl border-t-2 border-b-2 border-purple-300 pt-10 pb-10 text-green-400 mr-4 ml-4 text-xl tracking-wider">
+                <div><p id="no-subscriptions-message">You have no subscriptions. </p></div>
+            </div>
             </div>
                 <!-- repeat subscriptions-->
                 <div class="mb-24">

@@ -13,3 +13,8 @@ body {
     background-image: linear-gradient(to bottom, black, black, #534d69, #9e92cc, #9e92cc, #f8d1ed, white);
 }
 
+#no-subscriptions-message {
+    font-family: 'Orbitron', sans-serif;
+}
+
+

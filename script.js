@@ -13,14 +13,11 @@ $scope.sampleAccountsData = [
 
 //index 
 $scope.selectedIndex = undefined;
+$scope.totalSubscriptionsCost = 0;
 
     //budget data
   $scope.submittedBudgetForms = [
-    {id: 0, title: "Subscriptions", amount: 100, spent: $scope.totalSubscriptionsCost, author: "raquelindia"},
-    {id: 1, title: "Toiletries", amount: 100, spent: 70, author: "chrismack"},
-    {id: 2, title: "Groceries", amount: 220, spent: 200, author: "raquelindia"},
-    {id: 3, title: "Medical", amount: 500, spent: 0, author: "raquelindia"},
-    {id: 4, title: "Car", amount: 800, spent: 850, author: "masayadiaz"}
+    {id: 0, title: "Subscriptions", amount: 12, spent: $scope.totalSubscriptionsCost, author: "raquelindia"}
   ];
 
   $scope.newBudgetData = {};
@@ -29,10 +26,7 @@ $scope.selectedIndex = undefined;
      //subscription data 
 
      $scope.submittedSubscriptionForms = [
-        {service: "Netflix", cost: 17, author: "raqueindia"},
-        {service: "Hulu", cost: 15, author: "raquelindia"},
-        {service: "CrunchyRoll", cost: 10, author: "chrismack"},
-        {service: "Disney Plus", cost: 10, author: "masayadiaz"}
+    
      ];
 
      $scope.newSubscriptionData = {};
@@ -59,7 +53,6 @@ $scope.selectedIndex = undefined;
     //expenses totals
     $scope.totalMonthlySpent = 0;
     $scope.totalGroceriesCost = 12;
-    $scope.totalSubscriptionsCost = 0;
     $scope.totalMonthlyBudgetSpent = 0;
     $scope.totalSubmittedBudget = 0; 
     $scope.mostExpensiveSubscriptionService = "";
@@ -242,10 +235,10 @@ $scope.submitEditBudgetForm = function () {
     if(!$scope.editedBudgetData.title) {
         $scope.editedBudgetData.title = $scope.submittedBudgetForms[$scope.selectedIndex].title;
     } 
-    if (!$scope.editedBudgetData.amount) {
+    if ($scope.editedBudgetData.amount == null) {
         $scope.editedBudgetData.amount = $scope.submittedBudgetForms[$scope.selectedIndex].amount;
     } 
-    if (!$scope.editedBudgetData.spent) {
+    if ($scope.editedBudgetData.spent == null) {
         $scope.editedBudgetData.spent = $scope.submittedBudgetForms[$scope.selectedIndex].spent;
     }
 
@@ -423,9 +416,9 @@ $scope.getUpdatedValues = function () {
     $scope.getMostExpensiveSubscription();
     $scope.getBiggestBudget();
     $scope.getBudgetsTotalSpent();
-    $scope.saveAppState();
     $scope.getTotalCosts();
     $scope.getPercentage($scope.totalMonthlySpent, $scope.totalSubmittedBudget);
+    $scope.saveAppState();
 }; $scope.getUpdatedValues();
 
 });

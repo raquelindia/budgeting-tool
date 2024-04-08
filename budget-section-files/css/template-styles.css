@@ -2,6 +2,10 @@ body {
     background-image: linear-gradient(to bottom, white, white, white, #f8d1ed, #9e92cc, #534d69, black, black);
 }
 
+#no-budgets-message {
+    font-family: 'Orbitron', sans-serif;
+}
+
 #budget-header {
     -webkit-text-stroke: 1.5px rgb(0, 0, 0); /* Width and color of the text outline */
     font-weight: 100;
