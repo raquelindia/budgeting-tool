@@ -185,11 +185,15 @@ $scope.deleteBudget = function() {
 
 // };
 
+$scope.refresh = function () {
+    $scope.loadAppState();
+}
+
 $scope.deleteSubscription = function(index) {
     $scope.submittedSubscriptionForms.splice(index, 1);
     console.log($scope.submittedSubscriptionForms);
     $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
-    $scope.numberOfOtherServices = $scope.numberOfSubscriptions - 1;
+    $scope.numberOfOtherServices = $scope.numberOfSubscriptions;
     $scope.saveAppState();
     window.location.reload();
 
@@ -260,6 +264,7 @@ $scope.submitNewSubscriptionForm = function () {
 $scope.submittedSubscriptionForms.push(angular.copy($scope.newSubscriptionData));
 $scope.newSubscriptionData = {};
 $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
+$scope.numberOfOtherServices = $scope.numberOfSubscriptions;
 $scope.saveAppState();
 };
 
