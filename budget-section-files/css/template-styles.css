@@ -6,6 +6,7 @@ body {
 
 #no-budgets-message {
     font-family: 'Orbitron', sans-serif;
+    -webkit-text-stroke: 0.8px black;
 }
 
 #budget-header {
