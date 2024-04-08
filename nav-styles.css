@@ -12,6 +12,7 @@
     margin-top: 16%;
     /* border: 2px solid #35d499; */
     border-radius: 8px;
+    -webkit-text-stroke: 0.8px black;
 }
 /* #account-logo {
     color: #c4b5fc;
@@ -31,6 +32,7 @@
     margin-top: 16%;
     /* border: 2px solid #35d499; */
     border-radius: 8px;
+    -webkit-text-stroke: 0.8px black;
 }
 #budget-logo {
     color: #35d499;
@@ -41,6 +43,7 @@
     margin-top: 16%;
     /* border: 2px solid #35d499; */
     border-radius: 8px;
+    -webkit-text-stroke: 0.8px black;
 }
 
 #nav-account {
