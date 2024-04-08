@@ -182,13 +182,13 @@ $scope.submitEditBudgetForm = function () {
 
 $scope.deleteBudget = function(index) {
     $scope.submittedBudgetForms.splice(index, 1);
-    $timeout(function() {
-        $scope.$apply();
-    });
+    // $timeout(function() {
+    //     $scope.$apply();
+    // });
     console.log($scope.submittedBudgetForms);
     $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
-    
     $scope.saveAppState();
+    window.location.reload();
 };
 
 
@@ -201,6 +201,7 @@ $scope.deleteSubscription = function(index) {
     $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
     $scope.numberOfOtherServices = $scope.numberOfSubscriptions - 1;
     $scope.saveAppState();
+
 };
 
 
@@ -231,6 +232,8 @@ $scope.submitNewBudgetForm = function () {
      $scope.submittedBudgetForms.push(angular.copy($scope.newBudgetData));
      $scope.newBudgetData = {};
      $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
+     console.log($scope.submittedBudgetForms);
+     console.log($scope.numberOfBudgets);
      $scope.saveAppState();
 };
 
@@ -361,7 +364,8 @@ $scope.loadAppState = function() {
 };
 
 //to call saveAppState whenever the state of the app changes 
-$scope.$watchGroup(['submittedBudgetForms', 
+$scope.$watchGroup([
+    'submittedBudgetForms', 
 'submittedSubscriptionForms',
  'numberOfBudgets', 
  'numberOfSubscriptions',
@@ -407,6 +411,10 @@ app.config(function($routeProvider){
     })
     .when("/newbudget", {
         templateUrl : "newBudgetForm.html",
+        controller: 'appCtrl'
+    })
+    .when("/editbudget", {
+        templateUrl : "editBudgetForm.html",
         controller: 'appCtrl'
     })
     .when("/overview", {
@@ -456,7 +464,7 @@ app.directive('monthlyBudget', function(){
         scope: {
             title: "@",
             amount: "@",
-            spent: "@",
+            spent: "@"
         },
         controller: 'appCtrl'
        

@@ -7,9 +7,10 @@
     <body>
         <div id="subscriptions-overview-container">
             <div><h3 id="sub-overview-title" class="text-purple-800 lg:text-3xl md:text-3xl text-2xl pl-4 tracking-wider">Subscriptions<span class="number-of-category text-xl text-white"> ( {{ numberOfSubscriptions }} )</span></h3></div>
-            <div><h4 class="pl-4 text-xl pt-4 text-gray-500 pb-4">You are subscribed to <span>{{submittedSubscriptionForms[0].service}}</span> {{ " and " + numberOfOtherServices + " other service(s)."}}</h4></div>
+            <div ng-if="numberOfSubscriptions > 0"><h4 class="pl-4 text-xl pt-4 text-gray-500 pb-4">You are subscribed to <span>{{submittedSubscriptionForms[0].service}}</span> {{ " and " + numberOfOtherServices + " other service(s)."}}</h4></div>
+            <div  ng-if="numberOfSubscriptions ===  0" ><h4 class="pl-4 text-xl pt-4 text-gray-500 pb-4">You are not subscribed to any services.</h4></div>
             <div><p class="black-outlined-words tracking-wider pl-4 text-xl pt-4 text-green-600 pb-4">You pay {{ "$" + totalSubscriptionsCost + " a month in subscriptions."}}</p></div>
-            <div><p class="pl-4 text-xl pt-4 text-gray-500 pb-4">Your most expensive subscription is {{ mostExpensiveSubscriptionService}}. You pay <span class="black-outlined-words text-red-500 tracking-wider">${{mostExpensiveSubscriptionCost}}</span> a month.</p></div>
+            <div ng-if="numberOfSubscriptions > 0" ><p class="pl-4 text-xl pt-4 text-gray-500 pb-4">Your most expensive subscription is {{ mostExpensiveSubscriptionService}}. You pay <span class="black-outlined-words text-red-500 tracking-wider">${{mostExpensiveSubscriptionCost}}</span> a month.</p></div>
         </div>
     </body>
 </html>
