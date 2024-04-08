@@ -1,8 +1,9 @@
 #edit-budget-title {
     -webkit-text-stroke: 1.5px rgb(0, 0, 0); /* Width and color of the text outline */
     font-weight: 100;
-    color: #c4b5fd;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: #35d499;
+    /* font-family: 'M PLUS Rounded 1c', sans-serif; */
+    font-family: 'Orbitron', sans-serif;
 }
 
 #edit-budget-header {
