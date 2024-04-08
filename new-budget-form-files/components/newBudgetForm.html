@@ -11,7 +11,7 @@
            <form action="#!budget" ng-submit="submitNewBudgetForm()" id="new-budget-form" class="pt-6 pb-6 lg:pl-28 lg:pr-28 md:pl-28 md:pr-28 pl-16 pr-16 bg-white">
             <div class="new-budget-form-divs">
                 <div class="new-budget-form-label-div mb-4">
-                <label class="text-2xl tracking-wider">Title</label>
+                <label class="text-2xl tracking-wider">title</label>
                 </div>
                 <div>
                     <input ng-require="true" ng-model="newBudgetData.title" class="new-budget-form-inputs" type="text" placeholder="Title" class="shadow border"> 
@@ -19,7 +19,7 @@
             </div>
             <div class="new-budget-form-divs">
                 <div class="new-budget-form-label-div mb-4">
-                    <label class="text-2xl tracking-wider">Amount</label>
+                    <label class="text-2xl tracking-wider">amount</label>
                 </div>
                 <div>
                     <input ng-required="true" ng-model="newBudgetData.amount" class="new-budget-form-inputs" type="number" placeholder="Enter amount" class="shadow border">
@@ -28,7 +28,7 @@
 
             <div class="new-budget-form-divs">
                 <div class="new-budget-form-label-div mb-4">
-                    <label class="text-2xl tracking-wider">Spent</label>
+                    <label class="text-2xl tracking-wider">spent</label>
                 </div>
                 <div>
                     <input ng-required="true" ng-model="newBudgetData.spent" class="new-budget-form-inputs" type="number" placeholder="Enter amount spent" class="shadow border">
@@ -48,7 +48,7 @@
             </div> -->
 
             <div>
-                <button id="new-budget-form-submit-btn" type="submit" class="border rounded-lg bg-pink-400 text-white pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2 class tracking-wider"><div>SUBMIT</div><div><span class="material-symbols-outlined">favorite</span></div></div></button>
+                <button id="new-budget-form-submit-btn" type="submit" class="border rounded-lg text-white pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2 class tracking-wider"><div class="btn-text">submit</div><div class="btn-text"><span class="material-symbols-outlined">favorite</span></div></div></button>
             </div>
             </form>
         </div>

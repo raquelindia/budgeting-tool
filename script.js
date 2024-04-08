@@ -69,18 +69,18 @@ $scope.totalSubscriptionsCost = 0;
 
     //date 
     $scope.months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
+        "january",
+        "february",
+        "march",
+        "april",
+        "may",
+        "june",
+        "july",
+        "august",
+        "september",
+        "october",
+        "november",
+        "december"
     ];
     $scope.currentDate = new Date();
     $scope.currentMonth = $scope.currentDate.getMonth();

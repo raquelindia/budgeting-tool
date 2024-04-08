@@ -39,3 +39,7 @@ body {
     background: #c4b5fd;
     color: white;
 }
+
+.btn-text {
+    -webkit-text-stroke: 0.8px black;
+}

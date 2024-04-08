@@ -8,16 +8,16 @@
             <div id="subscriptions-template-header-and-greeting" class="flex flex-col">
             <div id="subscriptions-template-header" class="pt-4 pb-4 flex flex-col">
                 <div class="flex flex-row-reverse">
-                <div class="mt-8"><a class="btns-inverted pt-4 pb-1 pr-2 pl-3 rounded-lg mr-12" ng-href="#!addsubscription"><span class="material-symbols-outlined">heart_plus</span></a></div>
+                <div class="btn-text mt-8"><a class="btns-inverted pt-4 pb-1 pr-2 pl-3 rounded-lg mr-12" ng-href="#!addsubscription"><span class="material-symbols-outlined">heart_plus</span></a></div>
                 </div>
                 <div>
-                <div><h1 id="subscriptions-template-title" class="flex flex-row justify-center text-purple-800  lg:mt-4 md:mt-4 mt-10 mb-4 lg:text-6xl md:text-5xl text-5xl">Subscriptions</h1></div>
+                <div><h1 id="subscriptions-template-title" class="flex flex-row justify-center text-purple-800  lg:mt-4 md:mt-4 mt-10 mb-4 lg:text-6xl md:text-5xl text-5xl">subscriptions</h1></div>
             </div>
             </div>
             <!-- Greeting message  -->
             <div ng-if="numberOfSubscriptions > 0" ng-include="'./subscriptions-files/components/subscriptionMessage.html'"></div>
             <div ng-if="numberOfSubscriptions < 1" class="flex mt-12 justify-center bg-white shadow-xl border-t-2 border-b-2 border-purple-300 pt-10 pb-10 text-green-400 mr-4 ml-4 text-xl tracking-wider">
-                <div><p id="no-subscriptions-message">You have no subscriptions. </p></div>
+                <div><p id="no-subscriptions-message">you have no subscriptions. </p></div>
             </div>
             </div>
                 <!-- repeat subscriptions-->

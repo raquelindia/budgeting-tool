@@ -20,7 +20,7 @@
 }
 
 .new-subscription-form-inputs {
-    border: 2px solid rgb(188, 121, 203);
+    border: 2px solid #35d499;
     border-radius: 6px;
     padding-left: 8px;
     padding-top: 6px;
@@ -30,8 +30,10 @@
 
 #new-subscription-form-submit-btn {
     font-family: 'Orbitron', sans-serif;
-    border: 3px solid white;
+    border: 3px solid #35d499;
     outline: 3px solid black;
+    color: #35d499;
+    background-color: white;
 }
 
 .subscription-form-labels {
