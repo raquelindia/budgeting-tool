@@ -11,18 +11,20 @@ $scope.sampleAccountsData = [
   //temp sign in
   $scope.selectedAccount = 'raquelindia';
 
-
+//index 
+$scope.selectedIndex = -1;
 
     //budget data
   $scope.submittedBudgetForms = [
-    {title: "Subscriptions", amount: 100, spent: $scope.totalSubscriptionsCost, author: "raquelindia"},
-    {title: "Toiletries", amount: 100, spent: 70, author: "chrismack"},
-    {title: "Groceries", amount: 220, spent: 200, author: "raquelindia"},
-    {title: "Medical", amount: 500, spent: 0, author: "raquelindia"},
-    {title: "Car", amount: 800, spent: 850, author: "masayadiaz"}
+    {id: 0, title: "Subscriptions", amount: 100, spent: $scope.totalSubscriptionsCost, author: "raquelindia"},
+    {id: 1, title: "Toiletries", amount: 100, spent: 70, author: "chrismack"},
+    {id: 2, title: "Groceries", amount: 220, spent: 200, author: "raquelindia"},
+    {id: 3, title: "Medical", amount: 500, spent: 0, author: "raquelindia"},
+    {id: 4, title: "Car", amount: 800, spent: 850, author: "masayadiaz"}
   ];
 
   $scope.newBudgetData = {};
+  $scope.editedBudgetData = {};
 
      //subscription data 
 
@@ -36,7 +38,7 @@ $scope.sampleAccountsData = [
      $scope.newSubscriptionData = {};
 
      //to edit budgets and subscriptions 
-     $scope.selectedBudget = null;
+   $scope.selectedBudget = null;
 
      //numbers of things 
     $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
@@ -120,6 +122,11 @@ $scope.toggleEditBudgetForm = function () {
     $scope.isEditBudgetFormDisplayed = !$scope.isEditBudgetFormDisplayed;
 };
 
+//log
+$scope.logSelectedBudget = function () {
+    console.log($scope.selectedBudget);
+}
+
 
 //find most expensive subscription
 $scope.getMostExpensiveSubscription = function () {
@@ -156,41 +163,41 @@ $scope.getMostExpensiveSubscription = function () {
 };
 
 //edit budgets
-$scope.submitEditBudgetForm = function () {
-      // Check if a budget is selected
-      if ($scope.selectedBudget) {
-        // Find the index of the selected budget in the submittedBudgetForms array
-        var index = $scope.submittedBudgetForms.findIndex(function(budget) {
-            return budget.title === $scope.selectedBudget.title;
-        });
-
-        // Update the budget details
-        if (index !== -1) {
-            $scope.submittedBudgetForms[index].amount = $scope.selectedBudget.amount;
-            $scope.submittedBudgetForms[index].spent = $scope.selectedBudget.spent;
-        }
-
-        // Clear the selectedBudget variable and hide the form
-        $scope.selectedBudget = null;
-        $scope.toggleEditBudgetForm(); // Assuming this function toggles the visibility of the edit form
-        
-    }
-
-    $scope.saveAppState();
-};
-
 
 $scope.deleteBudget = function(index) {
     $scope.submittedBudgetForms.splice(index, 1);
-    // $timeout(function() {
-    //     $scope.$apply();
-    // });
     console.log($scope.submittedBudgetForms);
     $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
     $scope.saveAppState();
     window.location.reload();
 };
 
+$scope.deleteToEditBudget = function(index) {
+    $scope.selectedBudget = index;
+    $scope.submittedBudgetForms.splice(index, 1);
+    console.log($scope.submittedBudgetForms);
+    $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
+    $scope.saveAppState();
+};
+
+
+$scope.saveIndex = function(index) {
+    $scope.selectedIndex = index;
+    console.log($scope.selectedIndex);
+    $scope.saveAppState();
+};
+
+$scope.retrieveIndex = function() {
+    // Code to retrieve data, assuming 'data' contains the budget information
+    $scope.submittedBudgetForms = data; // Assuming 'submittedBudgetForms' is the array containing the budget forms
+    $scope.budgetAmount = data.amount; // Save the value of 'amount' to 'budgetAmount'
+};
+
+
+// $scope.saveIndex = function () {
+//     $scope.selectedBudget = index;
+
+// };
 
 $scope.deleteSubscription = function(index) {
     $scope.submittedSubscriptionForms.splice(index, 1);
@@ -201,6 +208,7 @@ $scope.deleteSubscription = function(index) {
     $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
     $scope.numberOfOtherServices = $scope.numberOfSubscriptions - 1;
     $scope.saveAppState();
+    window.location.reload();
 
 };
 
@@ -229,13 +237,41 @@ $scope.getSubscriptionsTotal = function () {
 
 //submit and send budget data to array
 $scope.submitNewBudgetForm = function () {
+    $scope.newBudgetData.id = $scope.submittedBudgetForms.length;
+    console.log($scope.newBudgetData);
      $scope.submittedBudgetForms.push(angular.copy($scope.newBudgetData));
      $scope.newBudgetData = {};
      $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
+
      console.log($scope.submittedBudgetForms);
      console.log($scope.numberOfBudgets);
      $scope.saveAppState();
 };
+
+//test edit budgets function 
+$scope.submitEditBudgetForm = function () {
+    // $scope.deleteToEditBudget();
+    $scope.editedBudgetData.id = $scope.selectedIndex;
+    if(!$scope.editedBudgetData.title) {
+        $scope.editedBudgetData.title = $scope.submittedBudgetForms[$scope.selectedIndex].title;
+    } 
+    if (!$scope.editedBudgetData.amount) {
+        $scope.editedBudgetData.amount = $scope.submittedBudgetForms[$scope.selectedIndex].amount;
+    } 
+    if (!$scope.editedBudgetData.spent) {
+        $scope.editedBudgetData.spent = $scope.submittedBudgetForms[$scope.selectedIndex].spent;
+    }
+
+    var newData = $scope.editedBudgetData;
+  $scope.submittedBudgetForms[$scope.selectedIndex] = newData;
+    console.log($scope.submittedBudgetForms);
+    // $scope.submittedBudgetForms.push(angular.copy($scope.editedBudgetData));
+    $scope.editedBudgetData = {};
+    $scope.selectedIndex = -1;
+        $scope.saveAppState();
+        $location.path('/budget');
+    };
+    
 
 //submit and send subscription data to array
 $scope.submitNewSubscriptionForm = function () {
@@ -334,7 +370,8 @@ $scope.getGroceriesTotal = function () {
         biggestBudgetTitle: $scope.biggestBudgetTitle,
         biggestBudgetAmount: $scope.biggestBudgetAmount,
         totalMonthlyBudgetSpent: $scope.totalMonthlyBudgetSpent,
-        numberOfOtherServices: $scope.numberOfOtherServices
+        numberOfOtherServices: $scope.numberOfOtherServices,
+        selectedIndex: $scope.selectedIndex
         // Add other properties you want to save
     });
 };
@@ -357,6 +394,8 @@ $scope.loadAppState = function() {
         $scope.biggestBudgetAmount = savedState.biggestBudgetAmount;
         $scope.totalMonthlyBudgetSpent = savedState.totalMonthlyBudgetSpent;
         $scope.numberOfOtherServices = savedState.numberOfOtherServices;
+        $scope.selectedIndex = savedState.selectedIndex;
+
 
         
         // Restore other properties
@@ -376,7 +415,8 @@ $scope.$watchGroup([
   'biggestBudgetTitle',
   'biggestBudgetAmount',
   'totalMonthlyBudgetSpent',
-  'numberOfOtherServices'
+  'numberOfOtherServices',
+  'selectedIndex'
 ], function(newValues, oldValues) {
     // Check if the arrays are different
     if (newValues[0] !== oldValues[0] || newValues[1] !== oldValues[1]) {
@@ -397,7 +437,6 @@ $scope.getUpdatedValues = function () {
 }; $scope.getUpdatedValues();
 
 });
-
 
 app.config(function($routeProvider){
     $routeProvider
@@ -464,7 +503,8 @@ app.directive('monthlyBudget', function(){
         scope: {
             title: "@",
             amount: "@",
-            spent: "@"
+            spent: "@",
+            id: "@"
         },
         controller: 'appCtrl'
        

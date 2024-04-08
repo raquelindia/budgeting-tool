@@ -1,43 +1,56 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="./edit-budget-section-files/css/components-styles.css">
+        <link rel="stylesheet" href="./new-budget-form-files/css/components-styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div id="edit-budget-form-container" class="flex flex-row justify-center mt-6 lg:mb-20 md:mb-20 mb-28">
-            <div class="pt-6 pb-6 lg:pl-28 lg:pr-28 md:pr-28 md:pr-28 pl-4 pr-4 bg-white" id="edit-budget-form">
-            <div ng-hide="selectedBudget" class="edit-budget-form-divs">
-            <div class="edit-budget-form-label-div mb-4"><label class="text-2xl tracking-wider">Budget:</label></div>
+        <div id="new-budget-form-container" class="flex flex-row justify-center mt-6">
+           <form action="#!budget" ng-submit="submitEditBudgetForm()" id="new-budget-form" class="pt-6 pb-6 lg:pl-28 lg:pr-28 md:pl-28 md:pr-28 pl-16 pr-16 bg-white">
+            <div class="new-budget-form-divs">
+                <div class="new-budget-form-label-div mb-4">
+                <label class="text-2xl tracking-wider">Title</label>
+                </div>
+                <div>
+                    <input ng-model="editedBudgetData.title" class="new-budget-form-inputs" type="text" placeholder="{{ submittedBudgetForms[selectedIndex].title}}" class="shadow border"> 
+                </div>
+            </div>
+            <div class="new-budget-form-divs">
+                <div class="new-budget-form-label-div mb-4">
+                    <label class="text-2xl tracking-wider">Amount</label>
+                </div>
+                <div>
+                    <input  ng-model="editedBudgetData.amount" class="new-budget-form-inputs" type="number" placeholder="{{ submittedBudgetForms[selectedIndex].amount }}" class="shadow border">
+                </div>
+            </div>
+
+            <div class="new-budget-form-divs">
+                <div class="new-budget-form-label-div mb-4">
+                    <label class="text-2xl tracking-wider">Spent</label>
+                </div>
+                <div>
+                    <input ng-model="editedBudgetData.spent" class="new-budget-form-inputs" type="number" placeholder="{{ submittedBudgetForms[selectedIndex].spent }}" class="shadow border">
+                </div>
+            </div>
+
+            <!-- testing this out -->
+             <!-- <div class="new-budget-form-divs">
+                <div class="new-budget-form-label-div mb-4">
+                    <label class="text-2xl tracking-wider">Author</label>
+                </div>
+                <div>
+                    <select ng-model="newBudgetData.author" ng-required="true">
+                    <option value="{{ selectedAccount }}" class="new-budget-form-inputs shadow border">
+                    </select>
+                </div>
+            </div> -->
+
             <div>
-                <select class="edit-budget-form-inputs shadow border" ng-model="selectedBudget" ng-options="budget.title for budget in submittedBudgetForms">
-                    <option value="">Select a budget</option>
-                </select>
+                <button id="new-budget-form-submit-btn" type="submit" class="border rounded-lg bg-pink-400 text-white pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2 class tracking-wider"><div>SUBMIT</div><div><span class="material-symbols-outlined">favorite</span></div></div></button>
             </div>
-            </div>
-
-            <div>
-                <form ng-submit="submitEditBudgetForms()" ng-show="selectedBudget">
-                    <div class="edit-budget-form-divs">
-                    <div class="edit-budget-form-label-div mb-4"><label class="text-2xl tracking-wider">Title:</label></div>
-                    <div><input type="text" ng-model="selectedBudget.title" class="edit-budget-form-inputs shadow border"></div>
-                    </div>
-
-                    <div class="edit-budget-form-divs">
-                        <div class="edit-budget-form-label-div mb-4"><label class="text-2xl tracking-wider">Amount:</label></div>
-                        <div><input type="text" ng-model="selectedBudget.amount" class="edit-budget-form-inputs shadow border"></div>
-                    </div>
-
-                    <div class="edit-budget-form-divs">
-                        <div class="edit-budget-form-label-div mb-4"><label class="text-2xl tracking-wider">Spent</label></div>
-                        <div><input type="number" ng-model="selectedBudget.spent" class="edit-budget-form-inputs shadow border"></div>
-                    </div>
-
-                    <div>
-                        <button id="edit-budget-form-submit-btn" type="submit" class="border rounded-lg bg-pink-400 pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2 class tracking-wider"><div>SUBMIT</div><div><span class="material-symbols-outlined">favorite</span></div></div></button>
-                    </div>
-                </form>
-            </div>
+            </form>
         </div>
-     </div>
     </body>
 </html>

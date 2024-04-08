@@ -19,7 +19,7 @@
         </div>
             <div id="budget-section-template-components-div" class="mb-24">
             <div ng-repeat="(index, data) in submittedBudgetForms" class="mb-4 mt-8">
-                <monthly-budget class="flex flex-row justify-center" title="{{ data.title }}" amount="{{ data.amount }}" spent="{{ data.spent }}"></monthly-budget>
+                <monthly-budget class="flex flex-row justify-center" title="{{ data.title }}" amount="{{ data.amount }}" spent="{{ data.spent }}" id="{{ data.id }}"></monthly-budget>
             </div>
         </div>
         <!--only the users data-->
