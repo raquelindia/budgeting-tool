@@ -25,6 +25,9 @@
     color: #c4b5fc; /* Width and color of the text outline */
     font-weight: 600;
 }
+.you-pay-message {
+    color: #35d499;
+}
 
 #budgets-overview-title {
        font-family: 'Orbitron', sans-serif;

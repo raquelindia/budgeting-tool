@@ -12,6 +12,6 @@
 
 body {
     /* background-image: linear-gradient(to bottom, black, black, #534d69, #9e92cc, #9e92cc, #f8d1ed, white, white, white, #f8d1ed, #9e92cc, #534d69, black, black); */
-    background-image: linear-gradient(to bottom, white, white, #e7e1ff, #c4b5fd); 
+    background-image: linear-gradient(to bottom, rgb(252, 252, 252), rgb(252, 252, 252), #e7e1ff, #c4b5fd); 
 }
 

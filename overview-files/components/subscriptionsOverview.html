@@ -10,7 +10,7 @@
             <div ng-if="numberOfSubscriptions > 0 && numberOfSubscriptions > 1"><h4 class="pl-4 text-xl pt-4 text-gray-500 pb-4">You are subscribed to <span>{{submittedSubscriptionForms[0].service}}</span> {{ " and " + numberOfOtherServices + " other service(s)."}}</h4></div>
             <div ng-if="numberOfSubscriptions > 0 && numberOfSubscriptions < 2"><h4 class="pl-4 text-xl pt-4 text-gray-500 pb-4">You are subscribed to <span>{{submittedSubscriptionForms[0].service}}</span></h4></div>
             <div  ng-if="numberOfSubscriptions ===  0" ><h4 class="pl-4 text-xl pt-4 text-gray-500 pb-4">You are not subscribed to any services.</h4></div>
-            <div><p class="black-outlined-words tracking-wider pl-4 text-xl pt-4 text-green-600 pb-4">You pay {{ "$" + totalSubscriptionsCost + " a month in subscriptions."}}</p></div>
+            <div class="you-pay-message"><p class="black-outlined-words tracking-wider pl-4 text-xl pt-4 pb-4">You pay {{ "$" + totalSubscriptionsCost + " a month in subscriptions."}}</p></div>
             <div ng-if="numberOfSubscriptions > 0" ><p class="pl-4 text-xl pt-4 text-gray-500 pb-4">Your most expensive subscription is {{ mostExpensiveSubscriptionService}}. You pay <span class="black-outlined-words text-red-500 tracking-wider">${{mostExpensiveSubscriptionCost}}</span> a month.</p></div>
         </div>
     </body>
