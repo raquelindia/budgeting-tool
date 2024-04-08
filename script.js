@@ -180,14 +180,6 @@ $scope.deleteBudget = function() {
     window.location.reload();
 };
 
-
-$scope.retrieveIndex = function() {
-    // Code to retrieve data, assuming 'data' contains the budget information
-    $scope.submittedBudgetForms = data; // Assuming 'submittedBudgetForms' is the array containing the budget forms
-    $scope.budgetAmount = data.amount; // Save the value of 'amount' to 'budgetAmount'
-};
-
-
 // $scope.saveIndex = function () {
 //     $scope.selectedBudget = index;
 
@@ -307,7 +299,7 @@ count = count + $scope.totalSubscriptionsCost;
 count = count + $scope.totalMonthlyBudgetSpent;
 $scope.totalMonthlySpent = count;
 // console.log($scope.totalMonthlySpent); 
-}; $scope.getTotalCosts();
+};
     
 
 $scope.getGroceriesTotal = function () {
@@ -341,7 +333,7 @@ $scope.getGroceriesTotal = function () {
    var percentage = spent / amount * 100;
    var round = Math.floor(percentage);
    $scope.percentageSpent = round;
- }; $scope.getPercentage($scope.totalMonthlySpent, $scope.totalSubmittedBudget);
+ }; 
 
 
  //functions to save state 
@@ -361,7 +353,8 @@ $scope.getGroceriesTotal = function () {
         biggestBudgetAmount: $scope.biggestBudgetAmount,
         totalMonthlyBudgetSpent: $scope.totalMonthlyBudgetSpent,
         numberOfOtherServices: $scope.numberOfOtherServices,
-        selectedIndex: $scope.selectedIndex
+        selectedIndex: $scope.selectedIndex,
+        totalMonthlySpent:  $scope.totalMonthlySpent 
         // Add other properties you want to save
     });
 };
@@ -385,6 +378,7 @@ $scope.loadAppState = function() {
         $scope.totalMonthlyBudgetSpent = savedState.totalMonthlyBudgetSpent;
         $scope.numberOfOtherServices = savedState.numberOfOtherServices;
         $scope.selectedIndex = savedState.selectedIndex;
+        $scope.totalMonthlySpent = savedState.totalMonthlySpent;
 
 
         
@@ -406,7 +400,8 @@ $scope.$watchGroup([
   'biggestBudgetAmount',
   'totalMonthlyBudgetSpent',
   'numberOfOtherServices',
-  'selectedIndex'
+  'selectedIndex',
+  'totalMonthlySpent'
 ], function(newValues, oldValues) {
     // Check if the arrays are different
     if (newValues[0] !== oldValues[0] || newValues[1] !== oldValues[1]) {
@@ -424,6 +419,8 @@ $scope.getUpdatedValues = function () {
     $scope.getBiggestBudget();
     $scope.getBudgetsTotalSpent();
     $scope.saveAppState();
+    $scope.getTotalCosts();
+    $scope.getPercentage($scope.totalMonthlySpent, $scope.totalSubmittedBudget);
 }; $scope.getUpdatedValues();
 
 });
