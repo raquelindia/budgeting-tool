@@ -12,7 +12,7 @@ $scope.sampleAccountsData = [
   $scope.selectedAccount = 'raquelindia';
 
 //index 
-$scope.selectedIndex = -1;
+$scope.selectedIndex = undefined;
 
     //budget data
   $scope.submittedBudgetForms = [
@@ -164,28 +164,22 @@ $scope.getMostExpensiveSubscription = function () {
 
 //edit budgets
 
-$scope.deleteBudget = function(index) {
-    $scope.submittedBudgetForms.splice(index, 1);
-    console.log($scope.submittedBudgetForms);
-    $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
-    $scope.saveAppState();
-    window.location.reload();
-};
-
-$scope.deleteToEditBudget = function(index) {
-    $scope.selectedBudget = index;
-    $scope.submittedBudgetForms.splice(index, 1);
-    console.log($scope.submittedBudgetForms);
-    $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
-    $scope.saveAppState();
-};
-
 
 $scope.saveIndex = function(index) {
     $scope.selectedIndex = index;
     console.log($scope.selectedIndex);
     $scope.saveAppState();
 };
+
+$scope.deleteBudget = function() {
+    $scope.saveIndex();
+    $scope.submittedBudgetForms.splice($scope.selectedIndex, 1);
+    console.log($scope.submittedBudgetForms);
+    $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
+    $scope.saveAppState();
+    window.location.reload();
+};
+
 
 $scope.retrieveIndex = function() {
     // Code to retrieve data, assuming 'data' contains the budget information
@@ -201,9 +195,6 @@ $scope.retrieveIndex = function() {
 
 $scope.deleteSubscription = function(index) {
     $scope.submittedSubscriptionForms.splice(index, 1);
-    $timeout(function() {
-        $scope.$apply();
-    });
     console.log($scope.submittedSubscriptionForms);
     $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
     $scope.numberOfOtherServices = $scope.numberOfSubscriptions - 1;
@@ -267,9 +258,8 @@ $scope.submitEditBudgetForm = function () {
     console.log($scope.submittedBudgetForms);
     // $scope.submittedBudgetForms.push(angular.copy($scope.editedBudgetData));
     $scope.editedBudgetData = {};
-    $scope.selectedIndex = -1;
+    $scope.selectedIndex = null;
         $scope.saveAppState();
-        $location.path('/budget');
     };
     
 
