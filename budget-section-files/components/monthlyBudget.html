@@ -17,16 +17,16 @@
                 </div>
                 <div class="flex flex-row justify-start gap-3 lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 mb-4">
                   <div><p id="money-left-text" class="text-purple-500 font-extrabold tracking-wider mt-2">money left:</p></div>
-                  <div ng-if="id !== '0'"><p id="budget-money-left" class="text-purple-500 font-extrabold tracking-wider mt-2">{{"$"}}{{ amount - spent }}</p></div>
-                  <div ng-if="id === '0'"><p id="budget-money-left" class="text-purple-500 font-extrabold tracking-wider mt-2">{{"$"}}{{ amount - totalSubscriptionsCost }}</p></div>
+                  <div ng-if="id !== '0'"><p id="budget-money-left" class="reg-text text-purple-500 font-extrabold tracking-wider mt-2">{{"$"}}{{ amount - spent }}</p></div>
+                  <div ng-if="id === '0'"><p id="budget-money-left" class="reg-text text-purple-500 font-extrabold tracking-wider mt-2">{{"$"}}{{ amount - totalSubscriptionsCost }}</p></div>
                 </div>
 
                 <div class="lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 flex flex-col">
-                  <div ng-if="title === '0'" class="mb-6 text-gray-500 text-xl"><p>you have {{ numberOfSubscriptions }} subscriptions.</p></div>
-                  <div ng-if="id === '0' && numberOfSubscriptions > 0" class="mb-6 text-gray-500 text-xl"><p>total cost: ${{ totalSubscriptionsCost }}</p></div>
-                  <div class="mb-6 text-gray-500 text-xl"><p>budget: ${{ amount }}</p></div>
-                  <div ng-if="title != 'Subscriptions'" class="mb-6 text-gray-500 text-xl"><p>spent: ${{ spent }}</p></div>
-                  <div ng-if="id !== '0' && spent / amount * 100 > 100" class="black-outlined-words mb-6 text-red-500 text-xl tracking-wider"><p>you have gone over your budget for {{ title }} this month.</p></div>
+                  <div ng-if="title === '0'" class="reg-text mb-6 text-gray-500 text-xl"><p>you have {{ numberOfSubscriptions }} subscriptions.</p></div>
+                  <div ng-if="id === '0' && numberOfSubscriptions > 0" class="reg-text mb-6 text-gray-500 text-xl"><p>total cost: ${{ totalSubscriptionsCost }}</p></div>
+                  <div class="reg-text mb-6 text-gray-500 text-xl"><p>budget: ${{ amount }}</p></div>
+                  <div ng-if="title != 'Subscriptions'" class="reg-text mb-6 text-gray-500 text-xl"><p>spent: ${{ spent }}</p></div>
+                  <div ng-if="id !== '0' && spent / amount * 100 > 100" class="reg-text black-outlined-words mb-6 text-red-500 text-xl tracking-wider"><p>you have gone over your budget for {{ title }} this month.</p></div>
                   <div ng-if="id === '0' && totalSubscriptionsCost / amount * 100 > 100" class="black-outlined-words mb-6 text-red-500 text-xl tracking-wider"><p>you have gone over your budget for {{ title }} this month.</p></div>
                 </div>
                 <!-- <div ng-include="'./budget-section-files/components/monthlyBudgetBar.html'"></div>

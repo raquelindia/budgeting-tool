@@ -30,11 +30,13 @@
     -webkit-text-stroke: 1px black;
     color: #35d499;
     font-weight: 800;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #monthly-budget-component-year {
     -webkit-text-stroke: 1px black;
     font-weight: 800;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #test-budget-bar-green {
