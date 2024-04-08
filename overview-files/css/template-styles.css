@@ -1,10 +1,11 @@
 body { 
-    background-image: linear-gradient(to bottom, white, white, white, #f8d1ed, #9e92cc, #534d69, black, black);
+    /* background-image: linear-gradient(to bottom, white, white, white, #f8d1ed, #9e92cc, #534d69, black, black); */
+    background-image: linear-gradient(to bottom, white, white, #e7e1ff, #c4b5fd); 
   
 }
 
 #overview-template-header {
-    background-image: linear-gradient(to bottom, black, black, #534d69, #9e92cc, #9e92cc, #f8d1ed, white);
+    /* background-image: linear-gradient(to bottom, black, black, #534d69, #9e92cc, #9e92cc, #f8d1ed, white); */
     width: 100%;
 }
 
@@ -19,14 +20,15 @@ body {
 }
 
 .overview-header-text {
-    -webkit-text-stroke: 0.8px rgb(0, 0, 0);
+    -webkit-text-stroke: 0.8px black;
+    color: #35d499;
     font-weight: 900;
 }
 
 #overview-template-title {
     -webkit-text-stroke: 1.5px rgb(0, 0, 0); /* Width and color of the text outline */
     font-weight: 100;
-    color: rgb(245, 146, 222);
+    color: #c4b5fd;
     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
          

@@ -23,7 +23,7 @@
 
                 <div class="lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 flex flex-col">
                   <div ng-if="title === '0'" class="mb-6 text-gray-500 text-xl"><p>You have {{ numberOfSubscriptions }} subscriptions.</p></div>
-                  <div ng-if="id === '0'" class="mb-6 text-gray-500 text-xl"><p>Total cost: ${{ totalSubscriptionsCost }}</p></div>
+                  <div ng-if="id === '0' && numberOfSubscriptions > 0" class="mb-6 text-gray-500 text-xl"><p>Total cost: ${{ totalSubscriptionsCost }}</p></div>
                   <div class="mb-6 text-gray-500 text-xl"><p>Budget: ${{ amount }}</p></div>
                   <div ng-if="title != 'Subscriptions'" class="mb-6 text-gray-500 text-xl"><p>Spent: ${{ spent }}</p></div>
                   <div ng-if="id !== '0' && spent / amount * 100 > 100" class="black-outlined-words mb-6 text-red-500 text-xl tracking-wider"><p>You have gone over your budget for {{ title }} this month.</p></div>
