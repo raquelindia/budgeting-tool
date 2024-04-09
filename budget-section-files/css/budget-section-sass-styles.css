@@ -1,0 +1,11 @@
+#monthly-budget-container {
+  background-color: white;
+  width: 92%;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 5px 5px 10px rgba(161, 106, 150, 0.64);
+  transition: box-shadow 0.3 ease; }
+  #monthly-budget-container:hover {
+    box-shadow: 8px 6px 3px 0.5px rgba(255, 255, 255, 0.5); }
+
+/*# sourceMappingURL=budget-section-sass-styles.css.map */

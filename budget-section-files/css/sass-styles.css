@@ -3,8 +3,6 @@
   width: 92%;
   padding-left: 10px;
   padding-right: 10px;
-  border-top: 2px solid #c4b5fd;
-  border-bottom: 2px solid #c4b5fd;
   box-shadow: 5px 5px 10px rgba(161, 106, 150, 0.64);
   transition: box-shadow 0.3 ease;
 }

@@ -1,5 +1,5 @@
 #edit-budget-title {
-    -webkit-text-stroke: 1.5px rgb(0, 0, 0); /* Width and color of the text outline */
+    -webkit-text-stroke: 1px rgb(0, 0, 0); /* Width and color of the text outline */
     font-weight: 100;
     color: #35d499;
     /* font-family: 'M PLUS Rounded 1c', sans-serif; */
