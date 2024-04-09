@@ -17,7 +17,7 @@ $scope.totalSubscriptionsCost = 0;
 
     //budget data
   $scope.submittedBudgetForms = [
-    {id: 0, title: "Subscriptions", amount: 12, spent: $scope.totalSubscriptionsCost, author: "raquelindia"}
+    {id: 0, title: "Subscriptions", amount: 0, spent: $scope.totalSubscriptionsCost, author: "raquelindia"}
   ];
 
   $scope.newBudgetData = {};
