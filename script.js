@@ -13,11 +13,12 @@ $scope.sampleAccountsData = [
 
 //index 
 $scope.selectedIndex = undefined;
+$scope.selectedId = undefined;
 $scope.totalSubscriptionsCost = 0;
 
     //budget data
   $scope.submittedBudgetForms = [
-    {id: 0, title: "Subscriptions", amount: 0, spent: $scope.totalSubscriptionsCost, author: "raquelindia"}
+    {id: 1712770499917, title: "Subscriptions", amount: 0, spent: $scope.totalSubscriptionsCost, delete: false, author: "raquelindia"}
   ];
 
   $scope.newBudgetData = {};
@@ -83,6 +84,8 @@ $scope.totalSubscriptionsCost = 0;
         "december"
     ];
     $scope.currentDate = new Date();
+    $scope.milliseconds = $scope.currentDate.getTime();
+    $scope.newId = $scope.milliseconds + $scope.numberOfBudgets;
     $scope.currentMonth = $scope.currentDate.getMonth();
     $scope.currentYear = $scope.currentDate.getFullYear();
 
@@ -158,18 +161,31 @@ $scope.getMostExpensiveSubscription = function () {
 //edit budgets
 
 
-$scope.saveIndex = function(index) {
-    $scope.selectedIndex = index;
+$scope.saveId = function(id) {
+    $scope.selectedId = id;
     console.log($scope.selectedIndex);
+    console.log($scope.selectedId);
     $scope.saveAppState();
 };
 
-$scope.deleteBudget = function() {
-    $scope.saveIndex();
+$scope.saveIndex = function (index) {
+    $scope.selectedIndex = index;
+    console.log($scope.selectedIndex);
+    $scope.saveAppState();
+}
+
+$scope.deleteBudget = function(id) {
+    console.log($scope.selectedIndex);
+    $scope.saveIndex(id);
+    console.log($scope.saveIndex(id));
+    console.log($scope.selectedIndex);
+    console.log($scope.submittedBudgetForms[$scope.selectedIndex]);
     $scope.submittedBudgetForms.splice($scope.selectedIndex, 1);
     console.log($scope.submittedBudgetForms);
     $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
+    console.log($scope.submittedBudgetForms);
     $scope.saveAppState();
+    console.log($scope.selectedIndex);
     window.location.reload();
 };
 
@@ -217,21 +233,27 @@ $scope.getSubscriptionsTotal = function () {
 
 //submit and send budget data to array
 $scope.submitNewBudgetForm = function () {
-    $scope.newBudgetData.id = $scope.submittedBudgetForms.length;
+    console.log($scope.submittedBudgetForms.length);
+    $scope.newBudgetData.index = $scope.submittedBudgetForms.length;
+    $scope.newBudgetData.id = $scope.newId;
+    console.log("new id is: " + $scope.newId);
+    console.log($scope.submittedBudgetForms);
+    $scope.newBudgetData.delete = true;
     console.log($scope.newBudgetData);
      $scope.submittedBudgetForms.push(angular.copy($scope.newBudgetData));
      $scope.newBudgetData = {};
      $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
-
      console.log($scope.submittedBudgetForms);
      console.log($scope.numberOfBudgets);
      $scope.saveAppState();
+    console.log($scope.submittedBudgetForms);
+
 };
 
 //test edit budgets function 
 $scope.submitEditBudgetForm = function () {
     // $scope.deleteToEditBudget();
-    $scope.editedBudgetData.id = $scope.selectedIndex;
+    $scope.editedBudgetData.index = $scope.selectedId;
     if(!$scope.editedBudgetData.title) {
         $scope.editedBudgetData.title = $scope.submittedBudgetForms[$scope.selectedIndex].title;
     } 
@@ -489,7 +511,14 @@ app.directive('monthlyBudget', function(){
             title: "@",
             amount: "@",
             spent: "@",
-            id: "@"
+            id: "@",
+            index: "@",
+            delete: '=',
+            amountNum: '=',
+            spentNum: '=',
+            idNum: '=',
+            indexNum: '='
+
         },
         controller: 'appCtrl'
        

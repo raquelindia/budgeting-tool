@@ -20,8 +20,8 @@
         </div>
 
             <div id="budget-section-template-components-div" class="mb-24">
-            <div ng-repeat="(index, data) in submittedBudgetForms" class="mb-4 mt-8">
-                <monthly-budget class="flex flex-row justify-center" title="{{ data.title }}" amount="{{ data.amount }}" spent="{{ data.spent }}" id="{{ data.id }}"></monthly-budget>
+            <div ng-repeat="data in submittedBudgetForms" class="mb-4 mt-8">
+                <monthly-budget class="flex flex-row justify-center" title="{{ data.title }}" amount="{{ data.amount }}" spent="{{ data.spent }}" id="{{ data.id }}" index="{{ $index }}" idNum="data.id" delete="data.delete" amountNum="data.amount" spentNum="data.spent" indexNum="data.indexNum"></monthly-budget>
             </div>
         </div>
         <!--only the users data-->

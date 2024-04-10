@@ -8,17 +8,16 @@
         <div id="monthly-budget-container" class="pt-4 pb-8">
             <div id="monthly-budget-top" class="flex flex-row justify-between lg:pr-10 lg:pl-8 md:pr-10 md:pl-8 pl-4 pr-6 pt-4">
                 <div class="flex flex-row justify-start -ml-6 mb-4">
+                 <div>{{data.title}}</div>
                     <div class="flex flex-row justify-between gap-2 mb-2">
-                   
                         <div><h1 id="monthly-budget-component-title" class="lg:text-3xl md:text-3xl text-xl text-purple-800 tracking-wider">{{ title }}</h1></div><div class="mt-1"><h1 id="monthly-budget-component-month" class="text-white font-bold lg:text-2xl md:text-xl text-md tracking-wider">{{months[currentMonth]}}</h1></div><div class="text-white font-semibold mt-1"><p class="lg:text-xl md:text-lg text-sm mt-1 tracking-wider" id="monthly-budget-component-year">{{" " + currentYear}}</p></div> 
                   </div>
                   </div>
-                  
+                
                 </div>
                 <div class="flex flex-row justify-start gap-3 lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 mb-4">
                   <div><p id="money-left-text" class="text-purple-500 font-extrabold tracking-wider mt-2">money left:</p></div>
-                  <div ng-if="id !== '0'"><p id="budget-money-left" class="reg-text text-purple-500 font-extrabold tracking-wider mt-2">{{"$"}}{{ amount - spent }}</p></div>
-                  <div ng-if="id === '0'"><p id="budget-money-left" class="reg-text text-purple-500 font-extrabold tracking-wider mt-2">{{"$"}}{{ amount - totalSubscriptionsCost }}</p></div>
+                  <div><p id="budget-money-left" class="reg-text text-purple-500 font-extrabold tracking-wider mt-2">{{"$"}}{{ amountNum - spentNum }}</p></div>
                 </div>
 
                 <div class="lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 flex flex-col">
@@ -32,7 +31,7 @@
                 <!-- <div ng-include="'./budget-section-files/components/monthlyBudgetBar.html'"></div>
                   <br>
                   <br> -->
-                <div class="flex lg:flex-row md:flex-row flex-col  justify-center"><div class="lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 w-full" ng-include="'./budget-section-files/components/testBudgetBar.html'"></div><div class="flex lg:mt-0 md:mt-0 mt-10 lg:ml-0 md:ml-0 ml-6 "><div ng-if="id !== '0'" class="btn-text"><a ng-click="deleteBudget(id)" id="delete-budget-btn" class="btns pt-4 pb-2 pr-2 pl-3 rounded-lg mr-8 -mt-4"><span class="material-symbols-outlined">heart_minus</span></a></div><div class="btn-text"><a ng-href="#!editbudget" ng-click="saveIndex(id)" id="edit-budget-btn" class="btns pt-4 pb-2 pr-2 pl-3 rounded-lg mr-8 -mt-12"><span class="material-symbols-outlined">edit</span></a></div></div></div>
+                <div class="flex lg:flex-row md:flex-row flex-col  justify-center"><div class="lg:pr-10 lg:pl-10 md:pr-10 md:pl-10 pl-6 pr-6 w-full" ng-include="'./budget-section-files/components/testBudgetBar.html'"></div><div class="flex lg:mt-0 md:mt-0 mt-10 lg:ml-0 md:ml-0 ml-6 "><div ng-if="delete" class="btn-text"><a ng-click="deleteBudget(index)" id="delete-budget-btn" class="btns pt-4 pb-2 pr-2 pl-3 rounded-lg mr-8 -mt-4"><span class="material-symbols-outlined">heart_minus</span></a></div><div class="btn-text"><a ng-href="#!editbudget" ng-click="saveId(id); saveIndex(index)" id="edit-budget-btn" class="btns pt-4 pb-2 pr-2 pl-3 rounded-lg mr-8 -mt-12"><span class="material-symbols-outlined">edit</span></a></div></div></div>
 
             
 
