@@ -193,7 +193,7 @@ $scope.deleteBudget = function(index) {
 // };
 
 $scope.refresh = function () {
-    $scope.saveAppState();
+    $scope.loadAppState();
 }
 
 $scope.deleteSubscription = function(index) {
@@ -302,6 +302,7 @@ $scope.getBudgetsTotalSpent = function () {
     };
     $scope.totalMonthlyBudgetSpent = countSpent;
     $scope.totalSubmittedBudget = countTotalBudget;
+    $scope.saveAppState();
 }; 
 
 
@@ -318,6 +319,7 @@ $scope.getBiggestBudget = function (){
     }
     $scope.biggestBudgetTitle = budgetTitle;
     $scope.biggestBudgetAmount = amount;
+    $scope.saveAppState();
 };
 
 // add all costs 
