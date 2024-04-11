@@ -451,7 +451,9 @@ $scope.getUpdatedValues = function () {
     console.log("update: " + $scope.totalSubscriptionsCost);
     $scope.saveAppState();
     $scope.getMostExpensiveSubscription();
+    $scope.saveAppState();
     $scope.getBiggestBudget();
+    $scope.saveAppState();
     $scope.getBudgetsTotalSpent();
     $scope.getTotalCosts();
     $scope.getPercentage($scope.totalMonthlySpent, $scope.totalSubmittedBudget);
