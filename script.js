@@ -18,7 +18,7 @@ $scope.totalSubscriptionsCost = 0;
 
     //budget data
   $scope.submittedBudgetForms = [
-    {id: 1712770499917, title: "Subscriptions", amount: 0, spent: $scope.totalSubscriptionsCost, delete: false, author: "raquelindia"}
+    {id: 1712770499917, index: 0, title: "Subscriptions", amount: 0, spent: $scope.totalSubscriptionsCost, delete: false, author: "raquelindia"}
   ];
 
   $scope.newBudgetData = {};
@@ -27,7 +27,6 @@ $scope.totalSubscriptionsCost = 0;
      //subscription data 
 
      $scope.submittedSubscriptionForms = [
-    
      ];
 
      $scope.newSubscriptionData = {};
@@ -174,10 +173,8 @@ $scope.saveIndex = function (index) {
     $scope.saveAppState();
 }
 
-$scope.deleteBudget = function(id) {
-    console.log($scope.selectedIndex);
-    $scope.saveIndex(id);
-    console.log($scope.saveIndex(id));
+$scope.deleteBudget = function(index) {
+    $scope.saveIndex(index);
     console.log($scope.selectedIndex);
     console.log($scope.submittedBudgetForms[$scope.selectedIndex]);
     $scope.submittedBudgetForms.splice($scope.selectedIndex, 1);
@@ -253,7 +250,8 @@ $scope.submitNewBudgetForm = function () {
 //test edit budgets function 
 $scope.submitEditBudgetForm = function () {
     // $scope.deleteToEditBudget();
-    $scope.editedBudgetData.index = $scope.selectedId;
+    $scope.editedBudgetData.index = $scope.selectedIndex;
+    $scope.editedBudgetData.id = $scope.selectedId;
     if(!$scope.editedBudgetData.title) {
         $scope.editedBudgetData.title = $scope.submittedBudgetForms[$scope.selectedIndex].title;
     } 
@@ -269,7 +267,8 @@ $scope.submitEditBudgetForm = function () {
     console.log($scope.submittedBudgetForms);
     // $scope.submittedBudgetForms.push(angular.copy($scope.editedBudgetData));
     $scope.editedBudgetData = {};
-    $scope.selectedIndex = null;
+    $scope.selectedIndex = undefined;
+    $scope.selectedId = undefined;
         $scope.saveAppState();
     };
     
@@ -277,6 +276,8 @@ $scope.submitEditBudgetForm = function () {
 //submit and send subscription data to array
 $scope.submitNewSubscriptionForm = function () {
 $scope.submittedSubscriptionForms.push(angular.copy($scope.newSubscriptionData));
+$scope.totalSubscriptionsCost = $scope.totalSubscriptionsCost + $scope.newSubscriptionData.cost;
+$scope.saveAppState();
 $scope.newSubscriptionData = {};
 $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
 $scope.numberOfOtherServices = $scope.numberOfSubscriptions;
@@ -374,6 +375,7 @@ $scope.getGroceriesTotal = function () {
         totalMonthlyBudgetSpent: $scope.totalMonthlyBudgetSpent,
         numberOfOtherServices: $scope.numberOfOtherServices,
         selectedIndex: $scope.selectedIndex,
+        selectedId: $scope.selectedId,
         totalMonthlySpent:  $scope.totalMonthlySpent 
         // Add other properties you want to save
     });
@@ -399,6 +401,7 @@ $scope.loadAppState = function() {
         $scope.numberOfOtherServices = savedState.numberOfOtherServices;
         $scope.selectedIndex = savedState.selectedIndex;
         $scope.totalMonthlySpent = savedState.totalMonthlySpent;
+        $scope.selectedId = savedState.selectedId;
 
 
         
@@ -421,6 +424,7 @@ $scope.$watchGroup([
   'totalMonthlyBudgetSpent',
   'numberOfOtherServices',
   'selectedIndex',
+  'selectedId',
   'totalMonthlySpent'
 ], function(newValues, oldValues) {
     // Check if the arrays are different
