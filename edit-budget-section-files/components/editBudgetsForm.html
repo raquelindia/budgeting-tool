@@ -35,6 +35,10 @@
                 </div>
             </div>
 
+            <div class="mb-4" ng-if="selectedIndex === '0'" >
+                <div><a id="new-sub-link" class="btn-text tracking-wider" ng-href="#!addsubscription">new subscription</a></div>
+            </div>
+
             <!-- testing this out -->
              <!-- <div class="new-budget-form-divs">
                 <div class="new-budget-form-label-div mb-4">
@@ -48,7 +52,7 @@
             </div> -->
 
             <div>
-                <button id="new-budget-form-submit-btn" type="submit" class="border rounded-lg bg-pink-400 text-white pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2 class tracking-wider"><div class="btn-text">submit</div><div class="btn-text"><span class="material-symbols-outlined">favorite</span></div></div></button>
+                <button id="new-budget-form-submit-btn" type="submit" class="border rounded-lg pt-3 pb-2 pl-4 pr-4"><div class="flex flex-row justify-between gap-2 class tracking-wider"><div class="btn-text">submit</div><div class="btn-text"><span class="material-symbols-outlined">favorite</span></div></div></button>
             </div>
             </form>
         </div>

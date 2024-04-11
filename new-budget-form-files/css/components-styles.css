@@ -32,3 +32,18 @@
     color: #35d499;
     background-color: white;
 }
+
+#new-sub-link {
+    font-family: 'Orbitron', sans-serif;
+    border: 1px solid #35d499;
+    outline: 1px solid black;
+    color: #35d499;
+    background-color: white;
+    border-radius: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 8px;
+    padding-right: 12px;
+    
+
+}
