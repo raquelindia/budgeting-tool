@@ -11,10 +11,7 @@ $scope.sampleAccountsData = [
   //temp sign in
   $scope.selectedAccount = 'raquelindia';
 
-//index 
-$scope.selectedIndex = undefined;
-$scope.selectedId = undefined;
-$scope.totalSubscriptionsCost = 0;
+  $scope.totalSubscriptionsCost = 0;
 
     //budget data
   $scope.submittedBudgetForms = [
@@ -33,6 +30,10 @@ $scope.totalSubscriptionsCost = 0;
 
      //to edit budgets and subscriptions 
    $scope.selectedBudget = null;
+//index 
+$scope.selectedIndex = undefined;
+$scope.selectedId = undefined;
+
 
      //numbers of things 
     $scope.numberOfBudgets = $scope.submittedBudgetForms.length;
@@ -192,14 +193,16 @@ $scope.deleteBudget = function(index) {
 // };
 
 $scope.refresh = function () {
-    $scope.loadAppState();
+    $scope.saveAppState();
 }
 
 $scope.deleteSubscription = function(index) {
-    $scope.submittedSubscriptionForms.splice(index, 1);
+    $scope.saveIndex(index);
+    $scope.submittedSubscriptionForms.splice($scope.selectedIndex, 1);
     console.log($scope.submittedSubscriptionForms);
     $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
     $scope.numberOfOtherServices = $scope.numberOfSubscriptions;
+    $scope.totalSubscriptionsCost = $scope.submittedBudgetForms[0].spent - $scope.totalSubscriptionsCost;
     $scope.saveAppState();
     window.location.reload();
 
@@ -225,7 +228,10 @@ $scope.getSubscriptionsTotal = function () {
         count = count + $scope.submittedSubscriptionForms[i].cost;
     };
     $scope.totalSubscriptionsCost = count;
-}; $scope.getSubscriptionsTotal();
+    $scope.submittedBudgetForms[0].spent = $scope.totalSubscriptionsCost;
+    $scope.saveAppState();
+}; 
+
 
 
 //submit and send budget data to array
@@ -275,8 +281,9 @@ $scope.submitEditBudgetForm = function () {
 
 //submit and send subscription data to array
 $scope.submitNewSubscriptionForm = function () {
-$scope.submittedSubscriptionForms.push(angular.copy($scope.newSubscriptionData));
 $scope.totalSubscriptionsCost = $scope.totalSubscriptionsCost + $scope.newSubscriptionData.cost;
+$scope.submittedSubscriptionForms.push(angular.copy($scope.newSubscriptionData));
+console.log($scope.totalSubscriptionsCost)
 $scope.saveAppState();
 $scope.newSubscriptionData = {};
 $scope.numberOfSubscriptions = $scope.submittedSubscriptionForms.length;
@@ -439,6 +446,8 @@ $scope.loadAppState();
 
 $scope.getUpdatedValues = function () {
     $scope.getSubscriptionsTotal();
+    console.log("update: " + $scope.totalSubscriptionsCost);
+    $scope.saveAppState();
     $scope.getMostExpensiveSubscription();
     $scope.getBiggestBudget();
     $scope.getBudgetsTotalSpent();
